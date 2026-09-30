@@ -21,7 +21,7 @@
 
 ## Still open before go-live
 
-1. Koby logo file for the footer (currently a text mark; see TODO in `tools/build.mjs`).
+1. ~~Koby logo~~ done: `assets/img/koby-logo.png` (white-K version for the dark footer; original in `koby-logo-original.webp`). It is not linked anywhere; add a link to kobysoft.app only if wanted.
 2. Privacy Policy pages (GDPR-based, with a short KVKK section) are DRAFTS. Resolve every bracketed item, have a qualified person review, then remove the draft banner in `tools/build.mjs`.
 3. The five other "Verified findings" from the old site (only the lost-booking one is included).
 4. Turkish wording review by the owner.

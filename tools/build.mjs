@@ -486,8 +486,7 @@ function footer(t) {
     <div class="foot-top">
       <a class="foot-brand" href="/${t.lang}/"><img src="/assets/img/logo.png" alt="" width="56" height="56"><span>TrueGuard Labs</span></a>
       <div class="foot-koby">
-        <!-- TODO: replace this text mark with the Koby logo file (assets/img/koby-logo.png) -->
-        <span style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
+        <div class="koby-mark"><img src="/assets/img/koby-logo.png" alt="" width="44" height="44"><span class="koby-word">KOBY<small>SOFT</small></span></div>
         <p>${f.koby[0]}<span>${f.koby[1]}</span></p>
       </div>
     </div>
