@@ -365,6 +365,66 @@ const T = {
 
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+// Extra wording for the redesigned sections.
+const X = {
+  en: {
+    navCta: "Contact us",
+    menu: "Menu",
+    eyebrows: { problem: "The hidden problem", verify: "What we verify", findings: "Verified findings", how: "How it works", score: "Health Score", why: "Why TrueGuard", contact: "Contact" },
+    trust: [["Independent", "We verify AI, we don’t build it"], ["Evidence-based", "Documented findings"], ["Up to 50 scenarios", "Realistic customer tests"], ["24-hour reply", "A fast, human response"]],
+    demo: [
+      { user: "What is your policy for changing or cancelling a booking?", ai: "You can cancel or change your booking up to 24 hours before check-in for a full refund.", flag: ["Finding:", " the answer contradicts the company’s written policy. Severity: high."] },
+      { user: "Do you have parking at the hotel?", ai: "Yes, we have free underground parking with 200 spaces.", flag: ["Finding:", " the assistant invented a facility that is not in the company’s information. Severity: high."] },
+      { user: "I’d like to speak to a person about a complaint.", ai: "I understand. Could you tell me more about your complaint?", flag: ["Finding:", " the assistant did not hand over to a human when asked. Severity: medium."] },
+    ],
+    demoLabel: "Illustrative examples",
+    band: {
+      h: "An objective score you can track",
+      feats: [["Ten categories", "Scored from a customer’s point of view"], ["Severity ratings", "So you fix what matters first"], ["Documented evidence", "Transcripts behind every finding"], ["Re-verification", "We confirm your fixes worked"]],
+    },
+    ctaPanel: { h: "Find out what your AI is really telling your customers", p: "Tell us about your assistant. We reply within 24 hours." },
+  },
+  tr: {
+    navCta: "İletişim",
+    menu: "Menü",
+    eyebrows: { problem: "Gizli sorun", verify: "Neyi doğrularız", findings: "Doğrulanmış bulgular", how: "Nasıl çalışır", score: "Sağlık Skoru", why: "Neden TrueGuard", contact: "İletişim" },
+    trust: [["Bağımsız", "Yapay zekâ geliştirmeyiz, doğrularız"], ["Kanıta dayalı", "Belgelenmiş bulgular"], ["50’ye kadar senaryo", "Gerçekçi müşteri testleri"], ["24 saatte yanıt", "Hızlı, insani bir dönüş"]],
+    demo: [
+      { user: "Rezervasyon değiştirme veya iptal politikanız nedir?", ai: "Rezervasyonunuzu girişten 24 saat öncesine kadar tam iadeyle iptal edebilir veya değiştirebilirsiniz.", flag: ["Bulgu:", " yanıt şirketin yazılı politikasıyla çelişiyor. Önem derecesi: yüksek."] },
+      { user: "Otelde otopark var mı?", ai: "Evet, 200 araçlık ücretsiz kapalı otoparkımız var.", flag: ["Bulgu:", " asistan, şirket bilgilerinde olmayan bir olanağı uydurdu. Önem derecesi: yüksek."] },
+      { user: "Bir şikâyetim için bir insanla konuşmak istiyorum.", ai: "Anlıyorum. Şikâyetiniz hakkında biraz daha bilgi verebilir misiniz?", flag: ["Bulgu:", " asistan, istendiğinde bir insana devretmedi. Önem derecesi: orta."] },
+    ],
+    demoLabel: "Açıklayıcı örnekler",
+    band: {
+      h: "Takip edebileceğiniz nesnel bir skor",
+      feats: [["On kategori", "Müşterinin bakış açısıyla puanlanır"], ["Önem dereceleri", "Önce önemli olanı düzeltirsiniz"], ["Belgelenmiş kanıt", "Her bulgunun arkasında konuşma dökümü"], ["Yeniden doğrulama", "Düzeltmelerinizin işe yaradığını teyit ederiz"]],
+    },
+    ctaPanel: { h: "Yapay zekânızın müşterilerinize gerçekte ne söylediğini öğrenin", p: "Asistanınızdan bahsedin. 24 saat içinde size dönelim." },
+  },
+};
+
+// Simple line icons (24x24, drawn inline; no icon library).
+const I = {
+  target: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>',
+  chat: '<path d="M4 5h16v11H10l-4 4v-4H4z"/>',
+  calendar: '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/>',
+  user: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>',
+  lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/>',
+  doc: '<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>',
+  warn: '<path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/>',
+  funnel: '<path d="M4 5h16l-6 7v6l-4 2v-8z"/>',
+  bolt: '<path d="M13 3L5 13h6l-1 8 8-10h-6z"/>',
+  shield: '<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  evidence: '<path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  layers: '<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>',
+  refresh: '<path d="M20 11a8 8 0 00-14-4M4 4v4h4M4 13a8 8 0 0014 4M20 20v-4h-4"/>',
+  chart: '<path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/>',
+};
+const icon = (k, s = 24) => `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
+const catIcons = ["target", "chat", "calendar", "user", "globe", "lock", "doc", "warn", "funnel", "bolt"];
+
 function head(t, path, title, description) {
   const url = `${SITE}${path}`;
   const alt = (l) => `${SITE}/${l}/`;
@@ -395,17 +455,26 @@ function head(t, path, title, description) {
 <meta name="twitter:image" content="${SITE}/assets/img/og.png">
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<script>document.documentElement.className+=" js"</script>
 `;
 }
 
 function header(t, homePath) {
+  const x = X[t.lang];
   return `<a class="skip" href="#main">${t.skip}</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="${homePath}"><img src="/assets/img/logo.png" alt="" width="36" height="36"><span>TrueGuard Labs</span></a>
-    <nav class="nav" aria-label="Main">${t.nav.map(([h, l]) => `<a href="${homePath}${h}">${l}</a>`).join("")}</nav>
-    <div class="lang" aria-label="Language"><span aria-current="true">${t.lang.toUpperCase()}</span><a href="/${t.other.code}/" hreflang="${t.other.code}" lang="${t.other.code}">${t.other.label}</a></div>
+  <div class="wrap bar">
+    <a class="brand" href="${homePath}"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard <small>Labs</small></span></a>
+    <nav class="nav" id="site-nav" aria-label="Main">${t.nav.map(([h, l], i) => `<a href="${homePath}${h}"${i === 3 ? ' class="nav-contact"' : ""}>${l}</a>`).join("")}</nav>
+    <div class="bar-right">
+      <div class="lang" aria-label="Language"><span aria-current="true">${t.lang.toUpperCase()}</span><a href="/${t.other.code}/" hreflang="${t.other.code}" lang="${t.other.code}">${t.other.label}</a></div>
+      <a class="btn btn-primary btn-sm" href="${homePath}#contact">${x.navCta}</a>
+      <button class="burger" type="button" aria-label="${x.menu}" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    </div>
   </div>
 </header>`;
 }
@@ -415,10 +484,10 @@ function footer(t) {
   return `<footer class="site-footer">
   <div class="wrap">
     <div class="foot-top">
-      <a class="foot-brand" href="/${t.lang}/"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard Labs</span></a>
+      <a class="foot-brand" href="/${t.lang}/"><img src="/assets/img/logo.png" alt="" width="56" height="56"><span>TrueGuard Labs</span></a>
       <div class="foot-koby">
         <!-- TODO: replace this text mark with the Koby logo file (assets/img/koby-logo.png) -->
-        <span class="koby-logo" style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
+        <span style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
         <p>${f.koby[0]}<span>${f.koby[1]}</span></p>
       </div>
     </div>
@@ -427,11 +496,12 @@ function footer(t) {
       <div>${f.rights} <a href="${t.privacyPath}">${f.privacy}</a></div>
     </div>
   </div>
-</footer>`;
+</footer>
+<script src="/assets/js/main.js" defer></script>`;
 }
 
 function home(t) {
-  const s = t.score, c = t.contact, p = t.problem, m = t.mock, fnd = t.findings;
+  const s = t.score, c = t.contact, p = t.problem, fnd = t.findings, x = X[t.lang], eb = x.eyebrows;
   const json = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -443,6 +513,8 @@ function home(t) {
     description: t.description,
     parentOrganization: { "@type": "Organization", name: "Koby Soft" },
   };
+  const slides = x.demo.map((d, i) => `<div class="slide${i === 0 ? " active" : ""}"><div class="bubble user">${d.user}</div><div class="bubble ai">${d.ai}</div><div class="flag"><b>${d.flag[0]}</b>${d.flag[1]}</div></div>`).join("");
+  const dots = x.demo.map((_, i) => `<button type="button" aria-label="${i + 1}"${i === 0 ? ' class="active"' : ""}></button>`).join("");
   return `${head(t, `/${t.lang}/`, t.title, t.description)}<script type="application/ld+json">${JSON.stringify(json)}</script>
 </head>
 <body>
@@ -450,50 +522,54 @@ ${header(t, `/${t.lang}/`)}
 <main id="main">
 
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">${t.eyebrow}</span>
       <h1>${t.h1[0]}<span class="accent">${t.h1[1]}</span></h1>
       <p class="lead">${t.lead}</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contact">${t.cta} →</a>
-        <a class="btn btn-ghost" href="#verify">${t.seeVerify}</a>
+        <a class="btn-link" href="#verify">${t.seeVerify} →</a>
       </div>
     </div>
-    <div class="mock" role="img" aria-label="${esc(m.note)}">
-      <div class="mock-bar"><span>${m.bar}</span><span class="mock-tag">${m.tag}</span></div>
-      <div class="bubble user">${m.user}</div>
-      <div class="bubble ai">${m.ai}</div>
-      <div class="flag"><b>${m.flag[0]}</b>${m.flag[1]}</div>
-      <div class="mock-note">${m.note}</div>
+    <div class="devices" role="img" aria-label="${esc(x.demoLabel)}">
+      <div class="laptop">
+        <div class="screen">
+          <div class="screen-bar"><span>${t.mock.bar}</span><span class="mock-tag">${t.mock.tag}</span></div>
+          <div class="slides">${slides}</div>
+          <div class="dots">${dots}</div>
+          <div class="mock-note">${x.demoLabel}</div>
+        </div>
+      </div>
+      <div class="laptop-base"></div>
+      <div class="phone"><div class="phone-screen"><small>${s.label}</small><b>56<i>/100</i></b><span class="pill">${s.pill}</span><em>${s.example}</em></div></div>
     </div>
   </div>
-  <div class="wrap" style="display:block;margin-top:48px">
-    <div class="stats">${t.stats.map(([n, l]) => `<div class="stat"><b>${n}</b><span>${l}</span></div>`).join("")}</div>
-  </div>
 </section>
+
+<div class="trust"><div class="wrap trust-grid">${x.trust.map(([h, d], i) => `<div class="trust-item reveal"><span class="ic">${icon(["shield", "evidence", "layers", "clock"][i], 22)}</span><div><b>${h}</b><span>${d}</span></div></div>`).join("")}</div></div>
 
 <section id="problem" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>${p.h[0]}<span class="accent">${p.h[1]}</span></h2><p>${p.p}</p></div>
+    <div class="section-head reveal"><span class="eyebrow">${eb.problem}</span><h2>${p.h[0]}<span class="accent">${p.h[1]}</span></h2><p>${p.p}</p></div>
     <div class="compare">
-      <div class="card without"><h3><span class="badge x">✕</span>${p.without}</h3><ul>${p.wo.map((x) => `<li>${x}</li>`).join("")}</ul></div>
-      <div class="card with"><h3><span class="badge v">✓</span>${p.withh}</h3><ul>${p.wi.map((x) => `<li>${x}</li>`).join("")}</ul></div>
+      <div class="card glow without reveal"><h3><span class="badge x">✕</span>${p.without}</h3><ul>${p.wo.map((q) => `<li>${q}</li>`).join("")}</ul></div>
+      <div class="card glow with reveal"><h3><span class="badge v">✓</span>${p.withh}</h3><ul>${p.wi.map((q) => `<li>${q}</li>`).join("")}</ul></div>
     </div>
   </div>
 </section>
 
-<section id="verify">
+<section id="verify" class="dark-band on-dark">
   <div class="wrap">
-    <div class="section-head"><h2>${t.verify.h}</h2><p>${t.verify.p}</p></div>
-    <div class="grid-5">${t.verify.cats.map(([h, d], i) => `<div class="card cat"><span class="n">${String(i + 1).padStart(2, "0")}</span><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
+    <div class="section-head reveal"><span class="eyebrow">${eb.verify}</span><h2>${t.verify.h}</h2><p>${t.verify.p}</p></div>
+    <div class="icon-grid">${t.verify.cats.map(([h, d], i) => `<div class="icon-card glow reveal${i === 0 || i === 9 ? " wide" : ""}"><span class="num">${String(i + 1).padStart(2, "0")}</span><div class="ic">${icon(catIcons[i])}</div><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
   </div>
 </section>
 
 <section id="findings" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>${fnd.h}</h2><p>${fnd.p}</p></div>
-    <div class="card finding">
+    <div class="section-head reveal"><span class="eyebrow">${eb.findings}</span><h2>${fnd.h}</h2><p>${fnd.p}</p></div>
+    <div class="card finding reveal">
       <div class="top"><h3>${fnd.title}</h3><span class="sev">${fnd.sev}</span></div>
       <div class="bubble user">${fnd.user}</div>
       <div class="bubble ai">${fnd.ai}</div>
@@ -505,44 +581,50 @@ ${header(t, `/${t.lang}/`)}
 
 <section id="how">
   <div class="wrap">
-    <div class="section-head"><h2>${t.how.h}</h2><p>${t.how.p}</p></div>
-    <div class="steps">${t.how.steps.map(([h, d], i) => `<div class="step"><div class="num">0${i + 1}</div><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
+    <div class="section-head reveal"><span class="eyebrow">${eb.how}</span><h2>${t.how.h}</h2><p>${t.how.p}</p></div>
+    <div class="steps">${t.how.steps.map(([h, d], i) => `<div class="step reveal"><div class="num">0${i + 1}</div><div class="line"></div><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
   </div>
 </section>
 
 <section id="score" class="alt">
-  <div class="wrap score-grid">
-    <div>
-      <h2>${s.h}</h2>
-      <p>${s.p}</p>
-      <div class="card score-big">
-        <span class="example-tag">${s.example}</span>
-        <div style="font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--muted)">${s.label}</div>
-        <div class="num">56<small> / 100</small></div>
-        <span class="pill">⚠ ${s.pill}</span>
-        <div style="color:var(--muted);font-size:.9rem">${s.pillNote}</div>
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="band-visual">
+        <div class="score-card">
+          <div class="score-top">
+            <div><small>${s.label}</small><b><span data-count="56">56</span><i> / 100</i></b></div>
+            <div style="text-align:right"><span class="pill">⚠ ${s.pill}</span><div style="margin-top:8px"><span class="example-tag">${s.example}</span></div></div>
+          </div>
+          <ul class="bars">${t.verify.cats.map(([h], i) => `<li><span>${h}</span><span class="track"><span class="fill" style="--w:${scores[i]}%;background:${barColor(scores[i])}"></span></span><span class="v">${scores[i]}%</span></li>`).join("")}</ul>
+          <div class="legend">${s.legend.map(([col, l]) => `<span><i class="dot" style="background:${col}"></i>${l}</span>`).join("")}</div>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <span class="example-tag">${s.example}</span>
-      <ul class="bars">${t.verify.cats.map(([h], i) => `<li><span>${h}</span><span class="track"><span class="fill" style="width:${scores[i]}%;background:${barColor(scores[i])}"></span></span><span class="v">${scores[i]}%</span></li>`).join("")}</ul>
-      <div class="legend">${s.legend.map(([col, l]) => `<span><i class="dot" style="background:${col}"></i>${l}</span>`).join("")}</div>
+      <div class="band-copy">
+        <span class="eyebrow">${eb.score}</span>
+        <h2>${x.band.h}</h2>
+        <p>${s.p}</p>
+        <div class="feat-grid">${x.band.feats.map(([h, d], i) => `<div class="feat"><span class="ic">${icon(["chart", "warn", "evidence", "refresh"][i], 20)}</span><div><b>${h}</b><span>${d}</span></div></div>`).join("")}</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="why">
   <div class="wrap">
-    <div class="section-head"><h2>${t.why.h}</h2></div>
-    <div class="grid-3">${t.why.items.map(([h, d], i) => `<div class="card why"><div class="ico">${["◆", "☰", "◎"][i]}</div><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
+    <div class="section-head reveal"><span class="eyebrow">${eb.why}</span><h2>${t.why.h}</h2></div>
+    <div class="grid-3">${t.why.items.map(([h, d], i) => `<div class="card glow why reveal"><div class="ic">${icon(["shield", "evidence", "chart"][i])}</div><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
   </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap"><div class="cta-panel reveal"><h2>${x.ctaPanel.h}</h2><p>${x.ctaPanel.p}</p><a class="btn btn-primary" href="#contact">${t.cta} →</a></div></div>
 </section>
 
 <section id="contact" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>${c.h}</h2><p>${c.p}</p></div>
+    <div class="section-head reveal"><span class="eyebrow">${eb.contact}</span><h2>${c.h}</h2><p>${c.p}</p></div>
     <div class="contact-grid">
-      <div class="card">
+      <div class="card reveal">
         <form id="contact-form" method="post" action="/api/contact" novalidate>
           <input type="hidden" name="lang" value="${t.lang}">
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
@@ -561,14 +643,14 @@ ${header(t, `/${t.lang}/`)}
           <div id="form-msg" class="form-msg" role="status" aria-live="polite" data-ok="${esc(c.ok)}" data-err="${esc(c.err)}"></div>
         </form>
       </div>
-      <div class="card info-card">
+      <div class="card info-card reveal">
         <h3>${c.infoH}</h3>
         <ul class="info-list">
           <li><small>${c.emailL}</small><a href="mailto:${EMAIL}">${EMAIL}</a></li>
           <li><small>${c.phoneL}</small><a href="tel:${PHONE_TEL}">${PHONE_DISPLAY}</a></li>
         </ul>
         <a class="btn btn-wa" href="${WA}" target="_blank" rel="noopener">${c.wa}</a>
-        <p style="margin:14px 0 0;font-size:.82rem;color:var(--muted)">${c.chooseNote}</p>
+        <p style="margin:14px 0 0;font-size:.82rem;color:var(--ink-dim)">${c.chooseNote}</p>
       </div>
     </div>
   </div>
@@ -576,7 +658,6 @@ ${header(t, `/${t.lang}/`)}
 
 </main>
 ${footer(t)}
-<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
 `;

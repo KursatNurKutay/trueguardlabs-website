@@ -25,65 +25,77 @@
 <meta name="twitter:image" content="https://trueguardlabs.com/assets/img/og.png">
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<script>document.documentElement.className+=" js"</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueGuard Labs","url":"https://trueguardlabs.com","logo":"https://trueguardlabs.com/assets/img/logo.png","email":"info@trueguardlabs.com","telephone":"+905437424433","description":"TrueGuard Labs, yapay zekâ asistanınızın doğruluğunu, güvenilirliğini ve iş etkisini bağımsız olarak doğrular; size belgelenmiş kanıtlar ve TrueGuard Sağlık Skoru™ sunar.","parentOrganization":{"@type":"Organization","name":"Koby Soft"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">İçeriğe geç</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/tr/"><img src="/assets/img/logo.png" alt="" width="36" height="36"><span>TrueGuard Labs</span></a>
-    <nav class="nav" aria-label="Main"><a href="/tr/#problem">Neden doğrulama</a><a href="/tr/#verify">Neyi doğrularız</a><a href="/tr/#how">Nasıl çalışır</a><a href="/tr/#contact">İletişim</a></nav>
-    <div class="lang" aria-label="Language"><span aria-current="true">TR</span><a href="/en/" hreflang="en" lang="en">EN</a></div>
+  <div class="wrap bar">
+    <a class="brand" href="/tr/"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard <small>Labs</small></span></a>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="/tr/#problem">Neden doğrulama</a><a href="/tr/#verify">Neyi doğrularız</a><a href="/tr/#how">Nasıl çalışır</a><a href="/tr/#contact" class="nav-contact">İletişim</a></nav>
+    <div class="bar-right">
+      <div class="lang" aria-label="Language"><span aria-current="true">TR</span><a href="/en/" hreflang="en" lang="en">EN</a></div>
+      <a class="btn btn-primary btn-sm" href="/tr/#contact">İletişim</a>
+      <button class="burger" type="button" aria-label="Menü" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    </div>
   </div>
 </header>
 <main id="main">
 
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Bağımsız yapay zekâ doğrulama</span>
       <h1>Yapay zekânıza güveniyorsunuz. <span class="accent">Biz doğruluyoruz.</span></h1>
       <p class="lead">Yapay zekânız müşterilerinizle günün her saati konuşuyor. TrueGuard Labs, doğruluğunu, güvenilirliğini ve iş etkisini bağımsız olarak doğrular; böylece müşterilerinize tam olarak ne söylediğini bilirsiniz.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contact">Yapay Zekâ Sağlık Skorunuzu Alın →</a>
-        <a class="btn btn-ghost" href="#verify">Neyi doğruladığımızı görün</a>
+        <a class="btn-link" href="#verify">Neyi doğruladığımızı görün →</a>
       </div>
     </div>
-    <div class="mock" role="img" aria-label="Açıklayıcı örnek">
-      <div class="mock-bar"><span>Yapay zekâ sohbet denetimi</span><span class="mock-tag">BAŞARISIZ</span></div>
-      <div class="bubble user">Rezervasyon değiştirme veya iptal politikanız nedir?</div>
-      <div class="bubble ai">Rezervasyonunuzu girişten 24 saat öncesine kadar tam iadeyle iptal edebilir veya değiştirebilirsiniz.</div>
-      <div class="flag"><b>Bulgu:</b> yanıt şirketin yazılı politikasıyla çelişiyor. Önem derecesi: yüksek.</div>
-      <div class="mock-note">Açıklayıcı örnek</div>
+    <div class="devices" role="img" aria-label="Açıklayıcı örnekler">
+      <div class="laptop">
+        <div class="screen">
+          <div class="screen-bar"><span>Yapay zekâ sohbet denetimi</span><span class="mock-tag">BAŞARISIZ</span></div>
+          <div class="slides"><div class="slide active"><div class="bubble user">Rezervasyon değiştirme veya iptal politikanız nedir?</div><div class="bubble ai">Rezervasyonunuzu girişten 24 saat öncesine kadar tam iadeyle iptal edebilir veya değiştirebilirsiniz.</div><div class="flag"><b>Bulgu:</b> yanıt şirketin yazılı politikasıyla çelişiyor. Önem derecesi: yüksek.</div></div><div class="slide"><div class="bubble user">Otelde otopark var mı?</div><div class="bubble ai">Evet, 200 araçlık ücretsiz kapalı otoparkımız var.</div><div class="flag"><b>Bulgu:</b> asistan, şirket bilgilerinde olmayan bir olanağı uydurdu. Önem derecesi: yüksek.</div></div><div class="slide"><div class="bubble user">Bir şikâyetim için bir insanla konuşmak istiyorum.</div><div class="bubble ai">Anlıyorum. Şikâyetiniz hakkında biraz daha bilgi verebilir misiniz?</div><div class="flag"><b>Bulgu:</b> asistan, istendiğinde bir insana devretmedi. Önem derecesi: orta.</div></div></div>
+          <div class="dots"><button type="button" aria-label="1" class="active"></button><button type="button" aria-label="2"></button><button type="button" aria-label="3"></button></div>
+          <div class="mock-note">Açıklayıcı örnekler</div>
+        </div>
+      </div>
+      <div class="laptop-base"></div>
+      <div class="phone"><div class="phone-screen"><small>TRUEGUARD SAĞLIK SKORU™</small><b>56<i>/100</i></b><span class="pill">Kritik</span><em>Örnek</em></div></div>
     </div>
   </div>
-  <div class="wrap" style="display:block;margin-top:48px">
-    <div class="stats"><div class="stat"><b>10</b><span>Doğrulanan kategori</span></div><div class="stat"><b>4</b><span>Basit adım</span></div><div class="stat"><b>50</b><span>50’ye kadar test senaryosu</span></div><div class="stat"><b>24s</b><span>Yanıt süresi</span></div></div>
-  </div>
 </section>
+
+<div class="trust"><div class="wrap trust-grid"><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Bağımsız</b><span>Yapay zekâ geliştirmeyiz, doğrularız</span></div></div><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/></svg></span><div><b>Kanıta dayalı</b><span>Belgelenmiş bulgular</span></div></div><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><div><b>50’ye kadar senaryo</b><span>Gerçekçi müşteri testleri</span></div></div><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>24 saatte yanıt</b><span>Hızlı, insani bir dönüş</span></div></div></div></div>
 
 <section id="problem" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>Çoğu yapay zekâ asistanı <span class="accent">sessizce başarısız olur.</span></h2><p>Müşteriler size nadiren söyler. Sadece giderler. Bağımsız doğrulama olmadan yapay zekânızın müşterilerinize gerçekte ne söylediğini bilemezsiniz.</p></div>
+    <div class="section-head reveal"><span class="eyebrow">Gizli sorun</span><h2>Çoğu yapay zekâ asistanı <span class="accent">sessizce başarısız olur.</span></h2><p>Müşteriler size nadiren söyler. Sadece giderler. Bağımsız doğrulama olmadan yapay zekânızın müşterilerinize gerçekte ne söylediğini bilemezsiniz.</p></div>
     <div class="compare">
-      <div class="card without"><h3><span class="badge x">✕</span>Doğrulama olmadan</h3><ul><li>Talepleri kaydedemediği için potansiyel müşteri kaybı</li><li>Var olmayan bilgiler uydurma</li><li>Rezervasyonları hatalı yönetme</li><li>Döngüsel yanıtlarla müşteriyi bezdirme</li><li>Gerektiğinde bir insana yönlendirmeme</li><li>Kendi şirket politikalarınızla çelişme</li></ul></div>
-      <div class="card with"><h3><span class="badge v">✓</span>TrueGuard Labs ile</h3><ul><li>Yapay zekânızın müşterilere gerçekte ne söylediğini bilirsiniz</li><li>Her sorun kanıtlarla belgelenir</li><li>Önem derecesi belirlenmiş, harekete geçebileceğiniz bulgular</li><li>Düzeltmelerinizden sonra çözümler yeniden doğrulanır</li><li>Zaman içinde takip edebileceğiniz net bir skor</li></ul></div>
+      <div class="card glow without reveal"><h3><span class="badge x">✕</span>Doğrulama olmadan</h3><ul><li>Talepleri kaydedemediği için potansiyel müşteri kaybı</li><li>Var olmayan bilgiler uydurma</li><li>Rezervasyonları hatalı yönetme</li><li>Döngüsel yanıtlarla müşteriyi bezdirme</li><li>Gerektiğinde bir insana yönlendirmeme</li><li>Kendi şirket politikalarınızla çelişme</li></ul></div>
+      <div class="card glow with reveal"><h3><span class="badge v">✓</span>TrueGuard Labs ile</h3><ul><li>Yapay zekânızın müşterilere gerçekte ne söylediğini bilirsiniz</li><li>Her sorun kanıtlarla belgelenir</li><li>Önem derecesi belirlenmiş, harekete geçebileceğiniz bulgular</li><li>Düzeltmelerinizden sonra çözümler yeniden doğrulanır</li><li>Zaman içinde takip edebileceğiniz net bir skor</li></ul></div>
     </div>
   </div>
 </section>
 
-<section id="verify">
+<section id="verify" class="dark-band on-dark">
   <div class="wrap">
-    <div class="section-head"><h2>Neyi doğrularız</h2><p>Yapay zekâ davranışının on kategorisi, gerçek bir müşterinin bakış açısıyla doğrulanır.</p></div>
-    <div class="grid-5"><div class="card cat"><span class="n">01</span><h3>Doğruluk</h3><p>Yanıtların olgusal doğruluğu</p></div><div class="card cat"><span class="n">02</span><h3>Ton ve Empati</h3><p>Müşteri deneyimi kalitesi</p></div><div class="card cat"><span class="n">03</span><h3>Rezervasyon Yönetimi</h3><p>Rezervasyon ve randevu</p></div><div class="card cat"><span class="n">04</span><h3>Yönlendirme</h3><p>İnsana devretme tetikleyicileri</p></div><div class="card cat"><span class="n">05</span><h3>Çok Dillilik</h3><p>Diller arası tutarlılık</p></div><div class="card cat"><span class="n">06</span><h3>Veri Gizliliği</h3><p>Kişisel bilgilerin yönetimi</p></div><div class="card cat"><span class="n">07</span><h3>Politika Uyumu</h3><p>Şirket kurallarıyla uyum</p></div><div class="card cat"><span class="n">08</span><h3>Uç Durumlar</h3><p>Alışılmadık veya kötü niyetli girdiler</p></div><div class="card cat"><span class="n">09</span><h3>Talep Toplama</h3><p>Talebi müşteriye dönüştürme gücü</p></div><div class="card cat"><span class="n">10</span><h3>Performans</h3><p>Yanıt hızı ve erişilebilirlik</p></div></div>
+    <div class="section-head reveal"><span class="eyebrow">Neyi doğrularız</span><h2>Neyi doğrularız</h2><p>Yapay zekâ davranışının on kategorisi, gerçek bir müşterinin bakış açısıyla doğrulanır.</p></div>
+    <div class="icon-grid"><div class="icon-card glow reveal wide"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Doğruluk</h3><p>Yanıtların olgusal doğruluğu</p></div><div class="icon-card glow reveal"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-4 4v-4H4z"/></svg></div><h3>Ton ve Empati</h3><p>Müşteri deneyimi kalitesi</p></div><div class="icon-card glow reveal"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Rezervasyon Yönetimi</h3><p>Rezervasyon ve randevu</p></div><div class="icon-card glow reveal"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div><h3>Yönlendirme</h3><p>İnsana devretme tetikleyicileri</p></div><div class="icon-card glow reveal"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><h3>Çok Dillilik</h3><p>Diller arası tutarlılık</p></div><div class="icon-card glow reveal"><span class="num">06</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div><h3>Veri Gizliliği</h3><p>Kişisel bilgilerin yönetimi</p></div><div class="icon-card glow reveal"><span class="num">07</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Politika Uyumu</h3><p>Şirket kurallarıyla uyum</p></div><div class="icon-card glow reveal"><span class="num">08</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></div><h3>Uç Durumlar</h3><p>Alışılmadık veya kötü niyetli girdiler</p></div><div class="icon-card glow reveal"><span class="num">09</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></div><h3>Talep Toplama</h3><p>Talebi müşteriye dönüştürme gücü</p></div><div class="icon-card glow reveal wide"><span class="num">10</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Performans</h3><p>Yanıt hızı ve erişilebilirlik</p></div></div>
   </div>
 </section>
 
 <section id="findings" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>Doğrulanmış bulgular</h2><p>Bağımsız doğrulama sırasında belgelenen gerçek sorunlar. İsimler ve ayrıntılar anonimleştirilmiştir.</p></div>
-    <div class="card finding">
+    <div class="section-head reveal"><span class="eyebrow">Doğrulanmış bulgular</span><h2>Doğrulanmış bulgular</h2><p>Bağımsız doğrulama sırasında belgelenen gerçek sorunlar. İsimler ve ayrıntılar anonimleştirilmiştir.</p></div>
+    <div class="card finding reveal">
       <div class="top"><h3>Kaybedilen rezervasyon talebi</h3><span class="sev">YÜKSEK ÖNEM</span></div>
       <div class="bubble user">15–18 Mart için çift kişilik bir oda ayırtmak istiyorum.</div>
       <div class="bubble ai">Harika bir seçim! Çift kişilik odalarımız çok tercih ediliyor. Yardımcı olabileceğim başka bir konu var mı?</div>
@@ -95,44 +107,50 @@
 
 <section id="how">
   <div class="wrap">
-    <div class="section-head"><h2>Nasıl çalışır</h2><p>Bilgilendirmeden doğrulanmış iyileştirmeye dört basit aşama.</p></div>
-    <div class="steps"><div class="step"><div class="num">01</div><h3>Bize anlatın</h3><p>Yapay zekânızın nasıl çalışması gerektiğini anlatın: amacı, politikaları ve beklenen davranışı.</p></div><div class="step"><div class="num">02</div><h3>Biz doğrularız</h3><p>Yapay zekânızla gerçek müşteriler gibi onlarca gerçekçi senaryoda etkileşime geçeriz.</p></div><div class="step"><div class="num">03</div><h3>Kanıtları alırsınız</h3><p>Belgelenmiş kanıtlar, konuşma dökümleri, önem dereceleri ve TrueGuard Sağlık Skorunuz™ ile ayrıntılı bulgular.</p></div><div class="step"><div class="num">04</div><h3>Yeniden doğrularız</h3><p>Düzeltmelerinizi yaptıktan sonra sorunların çözüldüğünü doğrularız.</p></div></div>
+    <div class="section-head reveal"><span class="eyebrow">Nasıl çalışır</span><h2>Nasıl çalışır</h2><p>Bilgilendirmeden doğrulanmış iyileştirmeye dört basit aşama.</p></div>
+    <div class="steps"><div class="step reveal"><div class="num">01</div><div class="line"></div><h3>Bize anlatın</h3><p>Yapay zekânızın nasıl çalışması gerektiğini anlatın: amacı, politikaları ve beklenen davranışı.</p></div><div class="step reveal"><div class="num">02</div><div class="line"></div><h3>Biz doğrularız</h3><p>Yapay zekânızla gerçek müşteriler gibi onlarca gerçekçi senaryoda etkileşime geçeriz.</p></div><div class="step reveal"><div class="num">03</div><div class="line"></div><h3>Kanıtları alırsınız</h3><p>Belgelenmiş kanıtlar, konuşma dökümleri, önem dereceleri ve TrueGuard Sağlık Skorunuz™ ile ayrıntılı bulgular.</p></div><div class="step reveal"><div class="num">04</div><div class="line"></div><h3>Yeniden doğrularız</h3><p>Düzeltmelerinizi yaptıktan sonra sorunların çözüldüğünü doğrularız.</p></div></div>
   </div>
 </section>
 
 <section id="score" class="alt">
-  <div class="wrap score-grid">
-    <div>
-      <h2>TrueGuard Sağlık Skoru™</h2>
-      <p>Her doğrulama net ve ölçülebilir bir TrueGuard Sağlık Skoru™ üretir. Kendimize özgü metodolojimiz yapay zekânızı on kritik kategoride puanlar ve müşteriye dönük yapay zekâ performansı için nesnel bir referans sunar.</p>
-      <div class="card score-big">
-        <span class="example-tag">Örnek</span>
-        <div style="font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--muted)">TRUEGUARD SAĞLIK SKORU™</div>
-        <div class="num">56<small> / 100</small></div>
-        <span class="pill">⚠ Kritik</span>
-        <div style="color:var(--muted);font-size:.9rem">Acil dikkat gerekiyor</div>
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="band-visual">
+        <div class="score-card">
+          <div class="score-top">
+            <div><small>TRUEGUARD SAĞLIK SKORU™</small><b><span data-count="56">56</span><i> / 100</i></b></div>
+            <div style="text-align:right"><span class="pill">⚠ Kritik</span><div style="margin-top:8px"><span class="example-tag">Örnek</span></div></div>
+          </div>
+          <ul class="bars"><li><span>Doğruluk</span><span class="track"><span class="fill" style="--w:62%;background:var(--warn)"></span></span><span class="v">62%</span></li><li><span>Ton ve Empati</span><span class="track"><span class="fill" style="--w:78%;background:var(--ok)"></span></span><span class="v">78%</span></li><li><span>Rezervasyon Yönetimi</span><span class="track"><span class="fill" style="--w:45%;background:var(--bad)"></span></span><span class="v">45%</span></li><li><span>Yönlendirme</span><span class="track"><span class="fill" style="--w:30%;background:var(--bad)"></span></span><span class="v">30%</span></li><li><span>Çok Dillilik</span><span class="track"><span class="fill" style="--w:55%;background:var(--warn)"></span></span><span class="v">55%</span></li><li><span>Veri Gizliliği</span><span class="track"><span class="fill" style="--w:70%;background:var(--warn)"></span></span><span class="v">70%</span></li><li><span>Politika Uyumu</span><span class="track"><span class="fill" style="--w:58%;background:var(--warn)"></span></span><span class="v">58%</span></li><li><span>Uç Durumlar</span><span class="track"><span class="fill" style="--w:40%;background:var(--bad)"></span></span><span class="v">40%</span></li><li><span>Talep Toplama</span><span class="track"><span class="fill" style="--w:35%;background:var(--bad)"></span></span><span class="v">35%</span></li><li><span>Performans</span><span class="track"><span class="fill" style="--w:85%;background:var(--ok)"></span></span><span class="v">85%</span></li></ul>
+          <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>75–100 Doğrulandı</span><span><i class="dot" style="background:var(--warn)"></i>50–74 Geliştirilmeli</span><span><i class="dot" style="background:var(--bad)"></i>0–49 Kritik</span></div>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <span class="example-tag">Örnek</span>
-      <ul class="bars"><li><span>Doğruluk</span><span class="track"><span class="fill" style="width:62%;background:var(--warn)"></span></span><span class="v">62%</span></li><li><span>Ton ve Empati</span><span class="track"><span class="fill" style="width:78%;background:var(--ok)"></span></span><span class="v">78%</span></li><li><span>Rezervasyon Yönetimi</span><span class="track"><span class="fill" style="width:45%;background:var(--bad)"></span></span><span class="v">45%</span></li><li><span>Yönlendirme</span><span class="track"><span class="fill" style="width:30%;background:var(--bad)"></span></span><span class="v">30%</span></li><li><span>Çok Dillilik</span><span class="track"><span class="fill" style="width:55%;background:var(--warn)"></span></span><span class="v">55%</span></li><li><span>Veri Gizliliği</span><span class="track"><span class="fill" style="width:70%;background:var(--warn)"></span></span><span class="v">70%</span></li><li><span>Politika Uyumu</span><span class="track"><span class="fill" style="width:58%;background:var(--warn)"></span></span><span class="v">58%</span></li><li><span>Uç Durumlar</span><span class="track"><span class="fill" style="width:40%;background:var(--bad)"></span></span><span class="v">40%</span></li><li><span>Talep Toplama</span><span class="track"><span class="fill" style="width:35%;background:var(--bad)"></span></span><span class="v">35%</span></li><li><span>Performans</span><span class="track"><span class="fill" style="width:85%;background:var(--ok)"></span></span><span class="v">85%</span></li></ul>
-      <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>75–100 Doğrulandı</span><span><i class="dot" style="background:var(--warn)"></i>50–74 Geliştirilmeli</span><span><i class="dot" style="background:var(--bad)"></i>0–49 Kritik</span></div>
+      <div class="band-copy">
+        <span class="eyebrow">Sağlık Skoru</span>
+        <h2>Takip edebileceğiniz nesnel bir skor</h2>
+        <p>Her doğrulama net ve ölçülebilir bir TrueGuard Sağlık Skoru™ üretir. Kendimize özgü metodolojimiz yapay zekânızı on kritik kategoride puanlar ve müşteriye dönük yapay zekâ performansı için nesnel bir referans sunar.</p>
+        <div class="feat-grid"><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg></span><div><b>On kategori</b><span>Müşterinin bakış açısıyla puanlanır</span></div></div><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><div><b>Önem dereceleri</b><span>Önce önemli olanı düzeltirsiniz</span></div></div><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/></svg></span><div><b>Belgelenmiş kanıt</b><span>Her bulgunun arkasında konuşma dökümü</span></div></div><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 00-14-4M4 4v4h4M4 13a8 8 0 0014 4M20 20v-4h-4"/></svg></span><div><b>Yeniden doğrulama</b><span>Düzeltmelerinizin işe yaradığını teyit ederiz</span></div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="why">
   <div class="wrap">
-    <div class="section-head"><h2>Neden TrueGuard Labs?</h2></div>
-    <div class="grid-3"><div class="card why"><div class="ico">◆</div><h3>Bağımsız</h3><p>Yapay zekâ sistemleri geliştirmiyoruz. Onları bağımsız olarak doğruluyoruz.</p></div><div class="card why"><div class="ico">☰</div><h3>Kanıta dayalı</h3><p>Her bulgu belgelenmiş kanıt ve gerçek konuşma örnekleri içerir.</p></div><div class="card why"><div class="ico">◎</div><h3>İş odaklı</h3><p>Yalnızca teknik doğruluğu değil; müşteri deneyimini, ticari etkiyi, uyumu ve operasyonel riski ölçeriz.</p></div></div>
+    <div class="section-head reveal"><span class="eyebrow">Neden TrueGuard</span><h2>Neden TrueGuard Labs?</h2></div>
+    <div class="grid-3"><div class="card glow why reveal"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Bağımsız</h3><p>Yapay zekâ sistemleri geliştirmiyoruz. Onları bağımsız olarak doğruluyoruz.</p></div><div class="card glow why reveal"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/></svg></div><h3>Kanıta dayalı</h3><p>Her bulgu belgelenmiş kanıt ve gerçek konuşma örnekleri içerir.</p></div><div class="card glow why reveal"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg></div><h3>İş odaklı</h3><p>Yalnızca teknik doğruluğu değil; müşteri deneyimini, ticari etkiyi, uyumu ve operasyonel riski ölçeriz.</p></div></div>
   </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap"><div class="cta-panel reveal"><h2>Yapay zekânızın müşterilerinize gerçekte ne söylediğini öğrenin</h2><p>Asistanınızdan bahsedin. 24 saat içinde size dönelim.</p><a class="btn btn-primary" href="#contact">Yapay Zekâ Sağlık Skorunuzu Alın →</a></div></div>
 </section>
 
 <section id="contact" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>TrueGuard Sağlık Skorunuzu™ alın</h2><p>Yapay zekâ asistanınızdan bahsedin, 24 saat içinde size dönelim.</p></div>
+    <div class="section-head reveal"><span class="eyebrow">İletişim</span><h2>TrueGuard Sağlık Skorunuzu™ alın</h2><p>Yapay zekâ asistanınızdan bahsedin, 24 saat içinde size dönelim.</p></div>
     <div class="contact-grid">
-      <div class="card">
+      <div class="card reveal">
         <form id="contact-form" method="post" action="/api/contact" novalidate>
           <input type="hidden" name="lang" value="tr">
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
@@ -151,14 +169,14 @@
           <div id="form-msg" class="form-msg" role="status" aria-live="polite" data-ok="Teşekkürler. Mesajınız gönderildi, 24 saat içinde yanıt vereceğiz." data-err="Üzgünüz, bir sorun oluştu. Lütfen bize doğrudan info@trueguardlabs.com adresinden yazın."></div>
         </form>
       </div>
-      <div class="card info-card">
+      <div class="card info-card reveal">
         <h3>Bize doğrudan ulaşın</h3>
         <ul class="info-list">
           <li><small>E-posta</small><a href="mailto:info@trueguardlabs.com">info@trueguardlabs.com</a></li>
           <li><small>Telefon</small><a href="tel:+905437424433">+90 (543) 742 44 33</a></li>
         </ul>
         <a class="btn btn-wa" href="https://wa.me/905437424433" target="_blank" rel="noopener">WhatsApp’tan yazın</a>
-        <p style="margin:14px 0 0;font-size:.82rem;color:var(--muted)">Size en uygun yolu seçin.</p>
+        <p style="margin:14px 0 0;font-size:.82rem;color:var(--ink-dim)">Size en uygun yolu seçin.</p>
       </div>
     </div>
   </div>
@@ -168,10 +186,10 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-top">
-      <a class="foot-brand" href="/tr/"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard Labs</span></a>
+      <a class="foot-brand" href="/tr/"><img src="/assets/img/logo.png" alt="" width="56" height="56"><span>TrueGuard Labs</span></a>
       <div class="foot-koby">
         <!-- TODO: replace this text mark with the Koby logo file (assets/img/koby-logo.png) -->
-        <span class="koby-logo" style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
+        <span style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
         <p>Akıllı çözümler<span> büyüyen işletmeler için.</span></p>
       </div>
     </div>

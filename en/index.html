@@ -25,65 +25,77 @@
 <meta name="twitter:image" content="https://trueguardlabs.com/assets/img/og.png">
 <link rel="icon" type="image/png" href="/assets/img/favicon.png">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/space-grotesk-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/style.css">
+<script>document.documentElement.className+=" js"</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"TrueGuard Labs","url":"https://trueguardlabs.com","logo":"https://trueguardlabs.com/assets/img/logo.png","email":"info@trueguardlabs.com","telephone":"+905437424433","description":"TrueGuard Labs independently verifies your AI assistant’s accuracy, reliability and business impact, and gives you documented evidence and a TrueGuard Health Score™.","parentOrganization":{"@type":"Organization","name":"Koby Soft"}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/en/"><img src="/assets/img/logo.png" alt="" width="36" height="36"><span>TrueGuard Labs</span></a>
-    <nav class="nav" aria-label="Main"><a href="/en/#problem">Why verify</a><a href="/en/#verify">What we verify</a><a href="/en/#how">How it works</a><a href="/en/#contact">Contact</a></nav>
-    <div class="lang" aria-label="Language"><span aria-current="true">EN</span><a href="/tr/" hreflang="tr" lang="tr">TR</a></div>
+  <div class="wrap bar">
+    <a class="brand" href="/en/"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard <small>Labs</small></span></a>
+    <nav class="nav" id="site-nav" aria-label="Main"><a href="/en/#problem">Why verify</a><a href="/en/#verify">What we verify</a><a href="/en/#how">How it works</a><a href="/en/#contact" class="nav-contact">Contact</a></nav>
+    <div class="bar-right">
+      <div class="lang" aria-label="Language"><span aria-current="true">EN</span><a href="/tr/" hreflang="tr" lang="tr">TR</a></div>
+      <a class="btn btn-primary btn-sm" href="/en/#contact">Contact us</a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    </div>
   </div>
 </header>
 <main id="main">
 
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Independent AI verification</span>
       <h1>You trust your AI. <span class="accent">We verify it.</span></h1>
       <p class="lead">Your AI talks to your customers around the clock. TrueGuard Labs independently verifies its accuracy, reliability and business impact, so you know exactly what it is telling them.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#contact">Get Your AI Health Score →</a>
-        <a class="btn btn-ghost" href="#verify">See what we verify</a>
+        <a class="btn-link" href="#verify">See what we verify →</a>
       </div>
     </div>
-    <div class="mock" role="img" aria-label="Illustrative example">
-      <div class="mock-bar"><span>AI chat audit</span><span class="mock-tag">FAIL</span></div>
-      <div class="bubble user">What is your policy for changing or cancelling a booking?</div>
-      <div class="bubble ai">You can cancel or change your booking up to 24 hours before check-in for a full refund.</div>
-      <div class="flag"><b>Finding:</b> the answer contradicts the company’s written policy. Severity: high.</div>
-      <div class="mock-note">Illustrative example</div>
+    <div class="devices" role="img" aria-label="Illustrative examples">
+      <div class="laptop">
+        <div class="screen">
+          <div class="screen-bar"><span>AI chat audit</span><span class="mock-tag">FAIL</span></div>
+          <div class="slides"><div class="slide active"><div class="bubble user">What is your policy for changing or cancelling a booking?</div><div class="bubble ai">You can cancel or change your booking up to 24 hours before check-in for a full refund.</div><div class="flag"><b>Finding:</b> the answer contradicts the company’s written policy. Severity: high.</div></div><div class="slide"><div class="bubble user">Do you have parking at the hotel?</div><div class="bubble ai">Yes, we have free underground parking with 200 spaces.</div><div class="flag"><b>Finding:</b> the assistant invented a facility that is not in the company’s information. Severity: high.</div></div><div class="slide"><div class="bubble user">I’d like to speak to a person about a complaint.</div><div class="bubble ai">I understand. Could you tell me more about your complaint?</div><div class="flag"><b>Finding:</b> the assistant did not hand over to a human when asked. Severity: medium.</div></div></div>
+          <div class="dots"><button type="button" aria-label="1" class="active"></button><button type="button" aria-label="2"></button><button type="button" aria-label="3"></button></div>
+          <div class="mock-note">Illustrative examples</div>
+        </div>
+      </div>
+      <div class="laptop-base"></div>
+      <div class="phone"><div class="phone-screen"><small>TrueGuard Health Score™</small><b>56<i>/100</i></b><span class="pill">Critical</span><em>Example</em></div></div>
     </div>
   </div>
-  <div class="wrap" style="display:block;margin-top:48px">
-    <div class="stats"><div class="stat"><b>10</b><span>Categories verified</span></div><div class="stat"><b>4</b><span>Simple steps</span></div><div class="stat"><b>50</b><span>Up to 50 test scenarios</span></div><div class="stat"><b>24h</b><span>Reply time</span></div></div>
-  </div>
 </section>
+
+<div class="trust"><div class="wrap trust-grid"><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Independent</b><span>We verify AI, we don’t build it</span></div></div><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/></svg></span><div><b>Evidence-based</b><span>Documented findings</span></div></div><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><div><b>Up to 50 scenarios</b><span>Realistic customer tests</span></div></div><div class="trust-item reveal"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>24-hour reply</b><span>A fast, human response</span></div></div></div></div>
 
 <section id="problem" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>Most AI assistants fail <span class="accent">silently.</span></h2><p>Customers rarely tell you. They simply leave. Without independent verification, you have no idea what your AI is really telling your customers.</p></div>
+    <div class="section-head reveal"><span class="eyebrow">The hidden problem</span><h2>Most AI assistants fail <span class="accent">silently.</span></h2><p>Customers rarely tell you. They simply leave. Without independent verification, you have no idea what your AI is really telling your customers.</p></div>
     <div class="compare">
-      <div class="card without"><h3><span class="badge x">✕</span>Without verification</h3><ul><li>Losing leads by failing to capture enquiries</li><li>Inventing information that doesn’t exist</li><li>Mishandling bookings and reservations</li><li>Frustrating customers with circular responses</li><li>Failing to escalate to a human when needed</li><li>Contradicting your own company policies</li></ul></div>
-      <div class="card with"><h3><span class="badge v">✓</span>With TrueGuard Labs</h3><ul><li>You know what your AI actually tells customers</li><li>Every issue documented with evidence</li><li>Severity-rated findings you can act on</li><li>Fixes re-verified after you correct them</li><li>A clear score you can track over time</li></ul></div>
+      <div class="card glow without reveal"><h3><span class="badge x">✕</span>Without verification</h3><ul><li>Losing leads by failing to capture enquiries</li><li>Inventing information that doesn’t exist</li><li>Mishandling bookings and reservations</li><li>Frustrating customers with circular responses</li><li>Failing to escalate to a human when needed</li><li>Contradicting your own company policies</li></ul></div>
+      <div class="card glow with reveal"><h3><span class="badge v">✓</span>With TrueGuard Labs</h3><ul><li>You know what your AI actually tells customers</li><li>Every issue documented with evidence</li><li>Severity-rated findings you can act on</li><li>Fixes re-verified after you correct them</li><li>A clear score you can track over time</li></ul></div>
     </div>
   </div>
 </section>
 
-<section id="verify">
+<section id="verify" class="dark-band on-dark">
   <div class="wrap">
-    <div class="section-head"><h2>What we verify</h2><p>Ten categories of AI behaviour, checked from the perspective of a real customer.</p></div>
-    <div class="grid-5"><div class="card cat"><span class="n">01</span><h3>Accuracy</h3><p>Factual correctness of responses</p></div><div class="card cat"><span class="n">02</span><h3>Tone & Empathy</h3><p>Customer experience quality</p></div><div class="card cat"><span class="n">03</span><h3>Booking Handling</h3><p>Reservation and scheduling</p></div><div class="card cat"><span class="n">04</span><h3>Escalation</h3><p>Human handover triggers</p></div><div class="card cat"><span class="n">05</span><h3>Multilingual</h3><p>Cross-language consistency</p></div><div class="card cat"><span class="n">06</span><h3>Data Privacy</h3><p>Personal information handling</p></div><div class="card cat"><span class="n">07</span><h3>Policy Compliance</h3><p>Alignment with company rules</p></div><div class="card cat"><span class="n">08</span><h3>Edge Cases</h3><p>Unusual or adversarial inputs</p></div><div class="card cat"><span class="n">09</span><h3>Lead Capture</h3><p>Enquiry conversion ability</p></div><div class="card cat"><span class="n">10</span><h3>Performance</h3><p>Response speed and availability</p></div></div>
+    <div class="section-head reveal"><span class="eyebrow">What we verify</span><h2>What we verify</h2><p>Ten categories of AI behaviour, checked from the perspective of a real customer.</p></div>
+    <div class="icon-grid"><div class="icon-card glow reveal wide"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Accuracy</h3><p>Factual correctness of responses</p></div><div class="icon-card glow reveal"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-4 4v-4H4z"/></svg></div><h3>Tone & Empathy</h3><p>Customer experience quality</p></div><div class="icon-card glow reveal"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Booking Handling</h3><p>Reservation and scheduling</p></div><div class="icon-card glow reveal"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></div><h3>Escalation</h3><p>Human handover triggers</p></div><div class="icon-card glow reveal"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div><h3>Multilingual</h3><p>Cross-language consistency</p></div><div class="icon-card glow reveal"><span class="num">06</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></div><h3>Data Privacy</h3><p>Personal information handling</p></div><div class="icon-card glow reveal"><span class="num">07</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg></div><h3>Policy Compliance</h3><p>Alignment with company rules</p></div><div class="icon-card glow reveal"><span class="num">08</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></div><h3>Edge Cases</h3><p>Unusual or adversarial inputs</p></div><div class="icon-card glow reveal"><span class="num">09</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6 7v6l-4 2v-8z"/></svg></div><h3>Lead Capture</h3><p>Enquiry conversion ability</p></div><div class="icon-card glow reveal wide"><span class="num">10</span><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg></div><h3>Performance</h3><p>Response speed and availability</p></div></div>
   </div>
 </section>
 
 <section id="findings" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>Verified findings</h2><p>Real issues documented during independent verification. Names and details are anonymised.</p></div>
-    <div class="card finding">
+    <div class="section-head reveal"><span class="eyebrow">Verified findings</span><h2>Verified findings</h2><p>Real issues documented during independent verification. Names and details are anonymised.</p></div>
+    <div class="card finding reveal">
       <div class="top"><h3>Lost booking enquiry</h3><span class="sev">HIGH SEVERITY</span></div>
       <div class="bubble user">I’d like to book a double room for 15–18 March.</div>
       <div class="bubble ai">Great choice! Our double rooms are very popular. Is there anything else I can help with?</div>
@@ -95,44 +107,50 @@
 
 <section id="how">
   <div class="wrap">
-    <div class="section-head"><h2>How it works</h2><p>Four straightforward stages, from briefing to verified improvement.</p></div>
-    <div class="steps"><div class="step"><div class="num">01</div><h3>Brief us</h3><p>Tell us how your AI should work: its purpose, policies and expected behaviour.</p></div><div class="step"><div class="num">02</div><h3>We verify</h3><p>We interact with your AI as real customers across dozens of realistic scenarios.</p></div><div class="step"><div class="num">03</div><h3>You receive evidence</h3><p>Detailed findings with documented evidence, transcripts, severity ratings and your TrueGuard Health Score™.</p></div><div class="step"><div class="num">04</div><h3>We re-verify</h3><p>After you make corrections, we verify that the issues are resolved.</p></div></div>
+    <div class="section-head reveal"><span class="eyebrow">How it works</span><h2>How it works</h2><p>Four straightforward stages, from briefing to verified improvement.</p></div>
+    <div class="steps"><div class="step reveal"><div class="num">01</div><div class="line"></div><h3>Brief us</h3><p>Tell us how your AI should work: its purpose, policies and expected behaviour.</p></div><div class="step reveal"><div class="num">02</div><div class="line"></div><h3>We verify</h3><p>We interact with your AI as real customers across dozens of realistic scenarios.</p></div><div class="step reveal"><div class="num">03</div><div class="line"></div><h3>You receive evidence</h3><p>Detailed findings with documented evidence, transcripts, severity ratings and your TrueGuard Health Score™.</p></div><div class="step reveal"><div class="num">04</div><div class="line"></div><h3>We re-verify</h3><p>After you make corrections, we verify that the issues are resolved.</p></div></div>
   </div>
 </section>
 
 <section id="score" class="alt">
-  <div class="wrap score-grid">
-    <div>
-      <h2>TrueGuard Health Score™</h2>
-      <p>Every verification produces a clear, measurable TrueGuard Health Score™. Our proprietary methodology scores your AI across ten critical categories, giving you an objective benchmark for customer-facing AI performance.</p>
-      <div class="card score-big">
-        <span class="example-tag">Example</span>
-        <div style="font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--muted)">TrueGuard Health Score™</div>
-        <div class="num">56<small> / 100</small></div>
-        <span class="pill">⚠ Critical</span>
-        <div style="color:var(--muted);font-size:.9rem">Needs immediate attention</div>
+  <div class="wrap">
+    <div class="band reveal">
+      <div class="band-visual">
+        <div class="score-card">
+          <div class="score-top">
+            <div><small>TrueGuard Health Score™</small><b><span data-count="56">56</span><i> / 100</i></b></div>
+            <div style="text-align:right"><span class="pill">⚠ Critical</span><div style="margin-top:8px"><span class="example-tag">Example</span></div></div>
+          </div>
+          <ul class="bars"><li><span>Accuracy</span><span class="track"><span class="fill" style="--w:62%;background:var(--warn)"></span></span><span class="v">62%</span></li><li><span>Tone & Empathy</span><span class="track"><span class="fill" style="--w:78%;background:var(--ok)"></span></span><span class="v">78%</span></li><li><span>Booking Handling</span><span class="track"><span class="fill" style="--w:45%;background:var(--bad)"></span></span><span class="v">45%</span></li><li><span>Escalation</span><span class="track"><span class="fill" style="--w:30%;background:var(--bad)"></span></span><span class="v">30%</span></li><li><span>Multilingual</span><span class="track"><span class="fill" style="--w:55%;background:var(--warn)"></span></span><span class="v">55%</span></li><li><span>Data Privacy</span><span class="track"><span class="fill" style="--w:70%;background:var(--warn)"></span></span><span class="v">70%</span></li><li><span>Policy Compliance</span><span class="track"><span class="fill" style="--w:58%;background:var(--warn)"></span></span><span class="v">58%</span></li><li><span>Edge Cases</span><span class="track"><span class="fill" style="--w:40%;background:var(--bad)"></span></span><span class="v">40%</span></li><li><span>Lead Capture</span><span class="track"><span class="fill" style="--w:35%;background:var(--bad)"></span></span><span class="v">35%</span></li><li><span>Performance</span><span class="track"><span class="fill" style="--w:85%;background:var(--ok)"></span></span><span class="v">85%</span></li></ul>
+          <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>75–100 Verified</span><span><i class="dot" style="background:var(--warn)"></i>50–74 Needs work</span><span><i class="dot" style="background:var(--bad)"></i>0–49 Critical</span></div>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <span class="example-tag">Example</span>
-      <ul class="bars"><li><span>Accuracy</span><span class="track"><span class="fill" style="width:62%;background:var(--warn)"></span></span><span class="v">62%</span></li><li><span>Tone & Empathy</span><span class="track"><span class="fill" style="width:78%;background:var(--ok)"></span></span><span class="v">78%</span></li><li><span>Booking Handling</span><span class="track"><span class="fill" style="width:45%;background:var(--bad)"></span></span><span class="v">45%</span></li><li><span>Escalation</span><span class="track"><span class="fill" style="width:30%;background:var(--bad)"></span></span><span class="v">30%</span></li><li><span>Multilingual</span><span class="track"><span class="fill" style="width:55%;background:var(--warn)"></span></span><span class="v">55%</span></li><li><span>Data Privacy</span><span class="track"><span class="fill" style="width:70%;background:var(--warn)"></span></span><span class="v">70%</span></li><li><span>Policy Compliance</span><span class="track"><span class="fill" style="width:58%;background:var(--warn)"></span></span><span class="v">58%</span></li><li><span>Edge Cases</span><span class="track"><span class="fill" style="width:40%;background:var(--bad)"></span></span><span class="v">40%</span></li><li><span>Lead Capture</span><span class="track"><span class="fill" style="width:35%;background:var(--bad)"></span></span><span class="v">35%</span></li><li><span>Performance</span><span class="track"><span class="fill" style="width:85%;background:var(--ok)"></span></span><span class="v">85%</span></li></ul>
-      <div class="legend"><span><i class="dot" style="background:var(--ok)"></i>75–100 Verified</span><span><i class="dot" style="background:var(--warn)"></i>50–74 Needs work</span><span><i class="dot" style="background:var(--bad)"></i>0–49 Critical</span></div>
+      <div class="band-copy">
+        <span class="eyebrow">Health Score</span>
+        <h2>An objective score you can track</h2>
+        <p>Every verification produces a clear, measurable TrueGuard Health Score™. Our proprietary methodology scores your AI across ten critical categories, giving you an objective benchmark for customer-facing AI performance.</p>
+        <div class="feat-grid"><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg></span><div><b>Ten categories</b><span>Scored from a customer’s point of view</span></div></div><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg></span><div><b>Severity ratings</b><span>So you fix what matters first</span></div></div><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/></svg></span><div><b>Documented evidence</b><span>Transcripts behind every finding</span></div></div><div class="feat"><span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 00-14-4M4 4v4h4M4 13a8 8 0 0014 4M20 20v-4h-4"/></svg></span><div><b>Re-verification</b><span>We confirm your fixes worked</span></div></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="why">
   <div class="wrap">
-    <div class="section-head"><h2>Why TrueGuard Labs?</h2></div>
-    <div class="grid-3"><div class="card why"><div class="ico">◆</div><h3>Independent</h3><p>We don’t build AI systems. We independently verify them.</p></div><div class="card why"><div class="ico">☰</div><h3>Evidence-based</h3><p>Every finding includes documented evidence and real conversation examples.</p></div><div class="card why"><div class="ico">◎</div><h3>Business focused</h3><p>We measure customer experience, commercial impact, compliance and operational risk, not just technical accuracy.</p></div></div>
+    <div class="section-head reveal"><span class="eyebrow">Why TrueGuard</span><h2>Why TrueGuard Labs?</h2></div>
+    <div class="grid-3"><div class="card glow why reveal"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Independent</h3><p>We don’t build AI systems. We independently verify them.</p></div><div class="card glow why reveal"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M10 13l2 2 3-3"/></svg></div><h3>Evidence-based</h3><p>Every finding includes documented evidence and real conversation examples.</p></div><div class="card glow why reveal"><div class="ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V4M4 20h16M8 16v-4M12 16V8M16 16v-6"/></svg></div><h3>Business focused</h3><p>We measure customer experience, commercial impact, compliance and operational risk, not just technical accuracy.</p></div></div>
   </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap"><div class="cta-panel reveal"><h2>Find out what your AI is really telling your customers</h2><p>Tell us about your assistant. We reply within 24 hours.</p><a class="btn btn-primary" href="#contact">Get Your AI Health Score →</a></div></div>
 </section>
 
 <section id="contact" class="alt">
   <div class="wrap">
-    <div class="section-head"><h2>Get your TrueGuard Health Score™</h2><p>Tell us about your AI assistant and we’ll get back to you within 24 hours.</p></div>
+    <div class="section-head reveal"><span class="eyebrow">Contact</span><h2>Get your TrueGuard Health Score™</h2><p>Tell us about your AI assistant and we’ll get back to you within 24 hours.</p></div>
     <div class="contact-grid">
-      <div class="card">
+      <div class="card reveal">
         <form id="contact-form" method="post" action="/api/contact" novalidate>
           <input type="hidden" name="lang" value="en">
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
@@ -151,14 +169,14 @@
           <div id="form-msg" class="form-msg" role="status" aria-live="polite" data-ok="Thank you. Your message has been sent and we will reply within 24 hours." data-err="Sorry, something went wrong. Please email us directly at info@trueguardlabs.com."></div>
         </form>
       </div>
-      <div class="card info-card">
+      <div class="card info-card reveal">
         <h3>Contact us directly</h3>
         <ul class="info-list">
           <li><small>Email</small><a href="mailto:info@trueguardlabs.com">info@trueguardlabs.com</a></li>
           <li><small>Phone</small><a href="tel:+905437424433">+90 (543) 742 44 33</a></li>
         </ul>
         <a class="btn btn-wa" href="https://wa.me/905437424433" target="_blank" rel="noopener">Chat on WhatsApp</a>
-        <p style="margin:14px 0 0;font-size:.82rem;color:var(--muted)">Choose whichever way suits you best.</p>
+        <p style="margin:14px 0 0;font-size:.82rem;color:var(--ink-dim)">Choose whichever way suits you best.</p>
       </div>
     </div>
   </div>
@@ -168,10 +186,10 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-top">
-      <a class="foot-brand" href="/en/"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard Labs</span></a>
+      <a class="foot-brand" href="/en/"><img src="/assets/img/logo.png" alt="" width="56" height="56"><span>TrueGuard Labs</span></a>
       <div class="foot-koby">
         <!-- TODO: replace this text mark with the Koby logo file (assets/img/koby-logo.png) -->
-        <span class="koby-logo" style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
+        <span style="color:#fff;font-weight:800;letter-spacing:.06em;font-size:1.3rem">KOBY <small style="font-weight:500;letter-spacing:.3em;font-size:.6rem;color:#c4cee0">SOFT</small></span>
         <p>Smart solutions<span> for growing businesses.</span></p>
       </div>
     </div>
