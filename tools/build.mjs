@@ -140,22 +140,31 @@ const T = {
       draft: "DRAFT: this text is a working draft for review and has not been approved. It must be checked and finalised before the site goes live.",
       back: "← Back to home",
       body: `
-<h2>1. Data controller</h2>
-<p>[Legal entity name, registration details and contact address of the data controller — to be completed.] TrueGuard Labs is a product of Koby Soft. You can contact us at <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
-<h2>2. What data we collect</h2>
-<p>Only what you send us through the contact form or by email, phone or WhatsApp: your name, company, email address, website, the link to your AI assistant (optional) and any message you write.</p>
-<h2>3. Why we use it</h2>
-<ul><li>To reply to your enquiry and discuss an independent AI verification.</li><li>To prepare and deliver our service if you become a client.</li></ul>
-<h2>4. Legal basis</h2>
-<p>Your explicit consent given when you submit the form, and our legitimate interest in answering business enquiries. [Legal basis wording under KVKK Article 5 to be confirmed.]</p>
-<h2>5. Who receives it</h2>
-<p>Form messages are delivered to our own mailbox. We do not sell your data. [Hosting and email providers to be listed and confirmed.]</p>
-<h2>6. Retention</h2>
-<p>[Retention period to be confirmed.]</p>
-<h2>7. Cookies and tracking</h2>
-<p>This website does not use cookies or analytics tracking. If this changes, this policy will be updated first.</p>
-<h2>8. Your rights</h2>
-<p>Under KVKK Article 11 you may ask whether we process your data, request access, correction or deletion, and object to processing. Write to <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>`,
+<p><em>Last updated: September 30, 2026</em></p>
+<h2>1. Data Controller</h2>
+<p>This notice is prepared by TrueGuard Labs (a brand operating under KOBY SOFT, Girne, Northern Cyprus) in its capacity as data controller, in accordance with Turkey’s Law No. 6698 on the Protection of Personal Data (“KVKK”).</p>
+<h2>2. Scope</h2>
+<p>This notice covers only the data collected by this website (trueguardlabs.com), that is, the data you share when you visit this site or contact us through the contact form, email, phone or WhatsApp. Information exchanged while we carry out an independent AI verification for a client is handled under the agreement with that client. [To be confirmed: wording for client engagement data.]</p>
+<h2>3. What Personal Data We Collect</h2>
+<p>When you contact us through our website, we may process the following personal data:</p>
+<ul><li>First and last name</li><li>Company name</li><li>Email address</li><li>Phone number (if you provide one)</li><li>Website address and the link to your AI assistant (if you provide them)</li><li>The content of the message you send</li></ul>
+<h2>4. How Personal Data Is Collected and Its Legal Basis</h2>
+<p>Your personal data is collected directly from you electronically when you fill out the contact form on our website or contact us by email, phone or WhatsApp. This data is processed on the legal grounds of “explicit consent of the data subject” and “being directly related to the establishment or performance of a contract,” as set out in Article 5 of KVKK.</p>
+<h2>5. Purposes of Processing Personal Data</h2>
+<p>The personal data we collect is processed solely for the following purposes:</p>
+<ul><li>Responding to your request or question</li><li>Providing information about TrueGuard Labs’ services</li><li>Maintaining and keeping a record of our communication with you</li></ul>
+<h2>6. Transfer of Personal Data</h2>
+<p>Your personal data is not shared with third parties or sold for marketing purposes, except where required by law. Your data may only be shared with infrastructure providers who help us deliver our services (for example, hosting and email service providers), to the extent the service requires.</p>
+<h2>7. Retention Period</h2>
+<p>Your personal data is retained for as long as required by the purpose of processing or by the applicable statutory limitation periods; at the end of these periods it is deleted, destroyed, or anonymized.</p>
+<h2>8. Your Rights Under KVKK Article 11</h2>
+<p>Under Article 11 of KVKK, you may apply to us to: learn whether your personal data is being processed; request information about it if it has been processed; learn the purpose of its processing and whether it is used in accordance with that purpose; know the third parties, domestic or abroad, to whom it has been transferred; request correction if it has been processed incompletely or incorrectly; request its deletion or destruction within the conditions set out in KVKK; object to a result that arises against you from the analysis of your processed data exclusively through automated systems; and request compensation for any damage you suffer due to unlawful processing.</p>
+<h2>9. How to Apply</h2>
+<p>To exercise the rights listed above, you can send your requests by email to <a href="mailto:${EMAIL}">${EMAIL}</a>. Your request will be concluded free of charge, as soon as possible and, at the latest, within the legally required period, depending on its nature.</p>
+<h2>10. Cookies</h2>
+<p>This website does not currently use cookies or analytics tools. If such tools are put into use, this section will be updated with the necessary information first.</p>
+<h2>11. Changes</h2>
+<p>This notice may be revised from time to time in line with changes in legal regulations or updates to our business processes. The current version is always published on this page.</p>`,
     },
   },
 
@@ -287,22 +296,31 @@ const T = {
       draft: "TASLAK: bu metin inceleme için hazırlanmış çalışma taslağıdır ve onaylanmamıştır. Site yayına girmeden önce kontrol edilip kesinleştirilmelidir.",
       back: "← Ana sayfaya dön",
       body: `
-<h2>1. Veri sorumlusu</h2>
-<p>[Veri sorumlusunun ticari unvanı, kayıt bilgileri ve iletişim adresi — tamamlanacak.] TrueGuard Labs, Koby Soft’un bir ürünüdür. Bize <a href="mailto:${EMAIL}">${EMAIL}</a> adresinden ulaşabilirsiniz.</p>
-<h2>2. Hangi verileri topluyoruz</h2>
-<p>Yalnızca iletişim formu, e-posta, telefon veya WhatsApp üzerinden bize ilettiğiniz bilgiler: adınız, şirketiniz, e-posta adresiniz, web siteniz, yapay zekâ asistanınızın bağlantısı (isteğe bağlı) ve yazdığınız mesaj.</p>
-<h2>3. Neden kullanıyoruz</h2>
-<ul><li>Talebinizi yanıtlamak ve bağımsız yapay zekâ doğrulamasını görüşmek için.</li><li>Müşterimiz olmanız halinde hizmetimizi hazırlamak ve sunmak için.</li></ul>
-<h2>4. Hukuki sebep</h2>
-<p>Formu gönderirken verdiğiniz açık rıza ve iş taleplerini yanıtlamadaki meşru menfaatimiz. [KVKK madde 5 kapsamındaki hukuki sebep ifadesi teyit edilecek.]</p>
-<h2>5. Kimlere aktarılır</h2>
-<p>Form mesajları kendi posta kutumuza iletilir. Verilerinizi satmıyoruz. [Barındırma ve e-posta sağlayıcıları listelenip teyit edilecek.]</p>
-<h2>6. Saklama süresi</h2>
-<p>[Saklama süresi teyit edilecek.]</p>
-<h2>7. Çerezler ve takip</h2>
-<p>Bu web sitesi çerez veya analiz amaçlı takip kullanmaz. Bu değişirse önce bu politika güncellenecektir.</p>
-<h2>8. Haklarınız</h2>
-<p>KVKK madde 11 uyarınca verilerinizin işlenip işlenmediğini sorabilir, erişim, düzeltme veya silme talep edebilir ve işlemeye itiraz edebilirsiniz. <a href="mailto:${EMAIL}">${EMAIL}</a> adresine yazın.</p>`,
+<p><em>Son güncelleme: 30 Eylül 2026</em></p>
+<h2>1. Veri Sorumlusu</h2>
+<p>Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca veri sorumlusu sıfatıyla TrueGuard Labs (KOBY SOFT çatısı altında faaliyet gösteren bir marka, Girne, Kuzey Kıbrıs) tarafından hazırlanmıştır.</p>
+<h2>2. Kapsam</h2>
+<p>Bu metin yalnızca bu web sitesi (trueguardlabs.com) aracılığıyla toplanan verileri, yani siteyi ziyaret ettiğinizde veya iletişim formu, e-posta, telefon ya da WhatsApp üzerinden bizimle iletişime geçtiğinizde paylaştığınız verileri kapsar. Bir müşterimiz için bağımsız yapay zekâ doğrulaması yürütürken paylaşılan bilgiler, ilgili müşteriyle yapılan sözleşme kapsamında işlenir. [Teyit edilecek: müşteri çalışması verilerine ilişkin ifade.]</p>
+<h2>3. Hangi Kişisel Verileri Topluyoruz</h2>
+<p>Web sitemiz üzerinden bizimle iletişime geçtiğinizde aşağıdaki kişisel verileri işleyebiliriz:</p>
+<ul><li>Ad ve soyad</li><li>Şirket adı</li><li>E-posta adresi</li><li>Telefon numarası (paylaşmanız halinde)</li><li>Web sitesi adresi ve yapay zekâ asistanınızın bağlantısı (paylaşmanız halinde)</li><li>Gönderdiğiniz mesajın içeriği</li></ul>
+<h2>4. Kişisel Verilerin Toplanma Yöntemi ve Hukuki Sebebi</h2>
+<p>Kişisel verileriniz, web sitemizdeki iletişim formunu doldurduğunuzda veya bizimle e-posta, telefon ya da WhatsApp ile iletişime geçtiğinizde doğrudan sizden elektronik ortamda toplanır. Bu veriler, KVKK’nın 5. maddesinde yer alan “ilgili kişinin açık rızası” ve “bir sözleşmenin kurulması veya ifasıyla doğrudan doğruya ilgili olması” hukuki sebeplerine dayanılarak işlenir.</p>
+<h2>5. Kişisel Verilerin İşlenme Amaçları</h2>
+<p>Topladığımız kişisel veriler yalnızca aşağıdaki amaçlarla işlenir:</p>
+<ul><li>Talebinizi veya sorunuzu yanıtlamak</li><li>TrueGuard Labs hizmetleri hakkında bilgi vermek</li><li>Sizinle olan iletişimimizin kaydını tutmak ve saklamak</li></ul>
+<h2>6. Kişisel Verilerin Aktarılması</h2>
+<p>Kişisel verileriniz, kanunen zorunlu haller dışında üçüncü kişilerle paylaşılmaz ve pazarlama amacıyla satılmaz. Verileriniz yalnızca hizmetlerimizi sunmamıza yardımcı olan altyapı sağlayıcılarıyla (örneğin barındırma ve e-posta hizmet sağlayıcıları), hizmetin gerektirdiği ölçüde paylaşılabilir.</p>
+<h2>7. Saklama Süresi</h2>
+<p>Kişisel verileriniz, işleme amacının veya ilgili yasal zamanaşımı sürelerinin gerektirdiği süre boyunca saklanır; bu sürelerin sonunda silinir, yok edilir veya anonim hale getirilir.</p>
+<h2>8. KVKK Madde 11 Kapsamındaki Haklarınız</h2>
+<p>KVKK’nın 11. maddesi uyarınca bize başvurarak; kişisel verilerinizin işlenip işlenmediğini öğrenme, işlenmişse buna ilişkin bilgi talep etme, işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme, yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme, eksik veya yanlış işlenmişse düzeltilmesini isteme, KVKK’da öngörülen şartlar çerçevesinde silinmesini veya yok edilmesini isteme, işlenen verilerin münhasıran otomatik sistemlerle analiz edilmesi suretiyle aleyhinize bir sonucun ortaya çıkmasına itiraz etme ve kanuna aykırı işleme nedeniyle zarara uğramanız halinde zararın giderilmesini talep etme haklarına sahipsiniz.</p>
+<h2>9. Başvuru Yöntemi</h2>
+<p>Yukarıda sayılan haklarınızı kullanmak için taleplerinizi <a href="mailto:${EMAIL}">${EMAIL}</a> adresine e-posta ile iletebilirsiniz. Talebiniz, niteliğine göre en kısa sürede ve en geç kanunen öngörülen süre içinde ücretsiz olarak sonuçlandırılacaktır.</p>
+<h2>10. Çerezler</h2>
+<p>Bu web sitesi şu anda çerez veya analiz araçları kullanmamaktadır. Bu tür araçlar kullanılmaya başlanırsa, bu bölüm önce gerekli bilgilerle güncellenecektir.</p>
+<h2>11. Değişiklikler</h2>
+<p>Bu metin, mevzuat değişikliklerine veya iş süreçlerimizdeki güncellemelere paralel olarak zaman zaman revize edilebilir. Güncel sürüm her zaman bu sayfada yayımlanır.</p>`,
     },
   },
 };
