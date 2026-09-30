@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "TrueGuard Labs website: plain HTML plus one contact-form function.",
   "scripts": {
-    "build": "node tools/build.mjs"
+    "generate": "node tools/build.mjs"
   },
   "dependencies": {
     "nodemailer": "^6.9.16"
