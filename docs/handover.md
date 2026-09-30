@@ -22,7 +22,7 @@
 ## Still open before go-live
 
 1. Koby logo file for the footer (currently a text mark; see TODO in `tools/build.mjs`).
-2. Privacy Policy (KVKK) pages are DRAFTS: base them on dentflowclinic.com/en/privacy, fill the bracketed items, remove the draft banner.
+2. Privacy Policy pages (GDPR-based, with a short KVKK section) are DRAFTS. Resolve every bracketed item, have a qualified person review, then remove the draft banner in `tools/build.mjs`.
 3. The five other "Verified findings" from the old site (only the lost-booking one is included).
 4. Turkish wording review by the owner.
 5. Migadu mailbox and DNS records, Vercel project and env vars, then DNS switch in Cloudflare. Registrar transfer to Cloudflare is deferred until after launch.
