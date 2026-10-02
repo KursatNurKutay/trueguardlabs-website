@@ -155,16 +155,20 @@
           <input type="hidden" name="lang" value="en">
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
           <div class="row2">
-            <label>Name<input type="text" name="name" placeholder="Your full name" required maxlength="120" autocomplete="name"></label>
-            <label>Company<input type="text" name="company" placeholder="Company name" maxlength="120" autocomplete="organization"></label>
+            <label>Name *<input type="text" name="name" placeholder="Your full name" required maxlength="120" autocomplete="name"></label>
+            <label>Company *<input type="text" name="company" placeholder="Company name" required maxlength="120" autocomplete="organization"></label>
           </div>
-          <label>Email<input type="email" name="email" placeholder="you@company.com" required maxlength="160" autocomplete="email"></label>
           <div class="row2">
-            <label>Website<input type="url" name="website" placeholder="https://yourcompany.com" maxlength="200" autocomplete="url"></label>
-            <label>AI assistant URL (optional)<input type="url" name="ai_url" placeholder="Link to your chatbot or AI system" maxlength="200"></label>
+            <label>Email *<input type="email" name="email" placeholder="you@company.com" required maxlength="160" autocomplete="email"></label>
+            <label>Phone / WhatsApp (optional)<input type="tel" name="phone" placeholder="+90 5xx xxx xx xx" maxlength="40" autocomplete="tel"></label>
+          </div>
+          <div class="row2">
+            <label>Website (optional)<input type="text" inputmode="url" name="website" placeholder="yourcompany.com" maxlength="200" autocomplete="url"></label>
+            <label>AI assistant URL (optional)<input type="text" inputmode="url" name="ai_url" placeholder="Link to your chatbot or AI system" maxlength="200"></label>
           </div>
           <label>Message (optional)<textarea name="message" placeholder="Anything we should know?" maxlength="2000"></textarea></label>
           <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>I have read the <a href="/en/privacy/" target="_blank" rel="noopener">Privacy Policy</a> and agree that TrueGuard Labs may contact me about my enquiry.</span></label>
+          <p class="req-note">* Required</p>
           <button class="btn btn-primary" type="submit" data-sending="Sending…">Request Verification →</button>
           <div id="form-msg" class="form-msg" role="status" aria-live="polite" data-ok="Thank you. Your message has been sent and we will reply within 24 hours." data-err="Sorry, something went wrong. Please email us directly at info@trueguardlabs.com."></div>
         </form>

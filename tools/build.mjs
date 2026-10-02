@@ -114,7 +114,9 @@ const T = {
       name: "Name", namePh: "Your full name",
       company: "Company", companyPh: "Company name",
       email: "Email", emailPh: "you@company.com",
-      website: "Website", websitePh: "https://yourcompany.com",
+      phone: "Phone / WhatsApp (optional)", phonePh: "+90 5xx xxx xx xx",
+      requiredNote: "* Required",
+      website: "Website (optional)", websitePh: "yourcompany.com",
       ai: "AI assistant URL (optional)", aiPh: "Link to your chatbot or AI system",
       message: "Message (optional)", messagePh: "Anything we should know?",
       consent: ["I have read the ", "Privacy Policy", " and agree that TrueGuard Labs may contact me about my enquiry."],
@@ -289,7 +291,9 @@ const T = {
       name: "Ad Soyad", namePh: "Adınız ve soyadınız",
       company: "Şirket", companyPh: "Şirket adı",
       email: "E-posta", emailPh: "siz@sirket.com",
-      website: "Web sitesi", websitePh: "https://sirketiniz.com",
+      phone: "Telefon / WhatsApp (isteğe bağlı)", phonePh: "+90 5xx xxx xx xx",
+      requiredNote: "* Zorunlu alanlar",
+      website: "Web sitesi (isteğe bağlı)", websitePh: "sirketiniz.com",
       ai: "Yapay zekâ asistanı bağlantısı (isteğe bağlı)", aiPh: "Chatbot veya yapay zekâ sisteminizin bağlantısı",
       message: "Mesaj (isteğe bağlı)", messagePh: "Bilmemizi istediğiniz bir şey var mı?",
       consent: ["", "Gizlilik Politikası", "’nı okudum ve talebimle ilgili TrueGuard Labs’ın benimle iletişime geçmesini kabul ediyorum."],
@@ -628,16 +632,20 @@ ${header(t, `/${t.lang}/`)}
           <input type="hidden" name="lang" value="${t.lang}">
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
           <div class="row2">
-            <label>${c.name}<input type="text" name="name" placeholder="${esc(c.namePh)}" required maxlength="120" autocomplete="name"></label>
-            <label>${c.company}<input type="text" name="company" placeholder="${esc(c.companyPh)}" maxlength="120" autocomplete="organization"></label>
+            <label>${c.name} *<input type="text" name="name" placeholder="${esc(c.namePh)}" required maxlength="120" autocomplete="name"></label>
+            <label>${c.company} *<input type="text" name="company" placeholder="${esc(c.companyPh)}" required maxlength="120" autocomplete="organization"></label>
           </div>
-          <label>${c.email}<input type="email" name="email" placeholder="${esc(c.emailPh)}" required maxlength="160" autocomplete="email"></label>
           <div class="row2">
-            <label>${c.website}<input type="url" name="website" placeholder="${esc(c.websitePh)}" maxlength="200" autocomplete="url"></label>
-            <label>${c.ai}<input type="url" name="ai_url" placeholder="${esc(c.aiPh)}" maxlength="200"></label>
+            <label>${c.email} *<input type="email" name="email" placeholder="${esc(c.emailPh)}" required maxlength="160" autocomplete="email"></label>
+            <label>${c.phone}<input type="tel" name="phone" placeholder="${esc(c.phonePh)}" maxlength="40" autocomplete="tel"></label>
+          </div>
+          <div class="row2">
+            <label>${c.website}<input type="text" inputmode="url" name="website" placeholder="${esc(c.websitePh)}" maxlength="200" autocomplete="url"></label>
+            <label>${c.ai}<input type="text" inputmode="url" name="ai_url" placeholder="${esc(c.aiPh)}" maxlength="200"></label>
           </div>
           <label>${c.message}<textarea name="message" placeholder="${esc(c.messagePh)}" maxlength="2000"></textarea></label>
           <label class="consent"><input type="checkbox" name="consent" value="yes" required><span>${c.consent[0]}<a href="${t.privacyPath}" target="_blank" rel="noopener">${c.consent[1]}</a>${c.consent[2]}</span></label>
+          <p class="req-note">${c.requiredNote}</p>
           <button class="btn btn-primary" type="submit" data-sending="${esc(c.sending)}">${c.submit} →</button>
           <div id="form-msg" class="form-msg" role="status" aria-live="polite" data-ok="${esc(c.ok)}" data-err="${esc(c.err)}"></div>
         </form>

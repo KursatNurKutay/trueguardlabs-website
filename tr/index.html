@@ -155,16 +155,20 @@
           <input type="hidden" name="lang" value="tr">
           <div class="hp" aria-hidden="true"><label>Website<input type="text" name="hp" tabindex="-1" autocomplete="off"></label></div>
           <div class="row2">
-            <label>Ad Soyad<input type="text" name="name" placeholder="Adınız ve soyadınız" required maxlength="120" autocomplete="name"></label>
-            <label>Şirket<input type="text" name="company" placeholder="Şirket adı" maxlength="120" autocomplete="organization"></label>
+            <label>Ad Soyad *<input type="text" name="name" placeholder="Adınız ve soyadınız" required maxlength="120" autocomplete="name"></label>
+            <label>Şirket *<input type="text" name="company" placeholder="Şirket adı" required maxlength="120" autocomplete="organization"></label>
           </div>
-          <label>E-posta<input type="email" name="email" placeholder="siz@sirket.com" required maxlength="160" autocomplete="email"></label>
           <div class="row2">
-            <label>Web sitesi<input type="url" name="website" placeholder="https://sirketiniz.com" maxlength="200" autocomplete="url"></label>
-            <label>Yapay zekâ asistanı bağlantısı (isteğe bağlı)<input type="url" name="ai_url" placeholder="Chatbot veya yapay zekâ sisteminizin bağlantısı" maxlength="200"></label>
+            <label>E-posta *<input type="email" name="email" placeholder="siz@sirket.com" required maxlength="160" autocomplete="email"></label>
+            <label>Telefon / WhatsApp (isteğe bağlı)<input type="tel" name="phone" placeholder="+90 5xx xxx xx xx" maxlength="40" autocomplete="tel"></label>
+          </div>
+          <div class="row2">
+            <label>Web sitesi (isteğe bağlı)<input type="text" inputmode="url" name="website" placeholder="sirketiniz.com" maxlength="200" autocomplete="url"></label>
+            <label>Yapay zekâ asistanı bağlantısı (isteğe bağlı)<input type="text" inputmode="url" name="ai_url" placeholder="Chatbot veya yapay zekâ sisteminizin bağlantısı" maxlength="200"></label>
           </div>
           <label>Mesaj (isteğe bağlı)<textarea name="message" placeholder="Bilmemizi istediğiniz bir şey var mı?" maxlength="2000"></textarea></label>
           <label class="consent"><input type="checkbox" name="consent" value="yes" required><span><a href="/tr/privacy/" target="_blank" rel="noopener">Gizlilik Politikası</a>’nı okudum ve talebimle ilgili TrueGuard Labs’ın benimle iletişime geçmesini kabul ediyorum.</span></label>
+          <p class="req-note">* Zorunlu alanlar</p>
           <button class="btn btn-primary" type="submit" data-sending="Gönderiliyor…">Doğrulama Talep Et →</button>
           <div id="form-msg" class="form-msg" role="status" aria-live="polite" data-ok="Teşekkürler. Mesajınız gönderildi, 24 saat içinde yanıt vereceğiz." data-err="Üzgünüz, bir sorun oluştu. Lütfen bize doğrudan info@trueguardlabs.com adresinden yazın."></div>
         </form>

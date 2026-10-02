@@ -16,6 +16,12 @@ function limited(ip) {
   return recent.length > 5;
 }
 
+// Accept "example.com" as well as "https://example.com"; keep it as typed otherwise.
+const url = (v, max) => {
+  const t = clean(v, max);
+  return t && !/^https?:\/\//i.test(t) ? "https://" + t : t;
+};
+const phoneClean = (v) => String(v == null ? "" : v).replace(/[^0-9+()\-.\s]/g, "").replace(/\s+/g, " ").trim().slice(0, 40);
 const clean = (v, max) => String(v == null ? "" : v).replace(/[\r\n]+/g, " ").trim().slice(0, max);
 const cleanBlock = (v, max) => String(v == null ? "" : v).replace(/\r/g, "").trim().slice(0, max);
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -41,12 +47,13 @@ module.exports = async (req, res) => {
   const name = clean(b.name, 120);
   const email = clean(b.email, 160);
   const company = clean(b.company, 120);
-  const website = clean(b.website, 200);
-  const aiUrl = clean(b.ai_url, 200);
+  const phone = phoneClean(b.phone);
+  const website = url(b.website, 200);
+  const aiUrl = url(b.ai_url, 200);
   const message = cleanBlock(b.message, 2000);
 
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!name || !emailOk || b.consent !== "yes") return done(400, false, lang);
+  if (!name || !company || !emailOk || b.consent !== "yes") return done(400, false, lang);
 
   const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, CONTACT_TO } = process.env;
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS || !CONTACT_TO) {
@@ -63,7 +70,7 @@ module.exports = async (req, res) => {
   });
 
   const rows = [
-    ["Name", name], ["Company", company], ["Email", email],
+    ["Name", name], ["Company", company], ["Email", email], ["Phone / WhatsApp", phone],
     ["Website", website], ["AI assistant URL", aiUrl], ["Language", lang],
   ];
   const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n") + `\n\nMessage:\n${message || "-"}\n`;
