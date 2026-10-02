@@ -30,7 +30,7 @@
 3. The five other "Verified findings" from the old site (only the lost-booking one is included).
 4. Turkish wording review by the owner.
 5. Migadu mailbox and DNS records, Vercel project and env vars, then DNS switch in Cloudflare. Registrar transfer to Cloudflare is deferred until after launch.
-6. Decide indexing.
+6. ~~Decide indexing~~ done: noindex removed, robots.txt and sitemap.xml added, GTM-T89BSZ75 added via tools/build.mjs. Privacy section 10 (Cookies) still says no cookies/analytics and must be reworded by the owner.
 
 ---
 

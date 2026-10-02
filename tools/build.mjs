@@ -3,6 +3,19 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 
 const SITE = "https://trueguardlabs.com";
+
+// Google Tag Manager: Google's standard snippet, container GTM-T89BSZ75.
+const GTM_HEAD = `<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T89BSZ75');</script>
+<!-- End Google Tag Manager -->`;
+const GTM_BODY = `<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T89BSZ75"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->`;
 const EMAIL = "info@trueguardlabs.com";
 const PHONE_DISPLAY = "+90 (543) 742 44 33";
 const PHONE_TEL = "+905437424433";
@@ -436,6 +449,7 @@ function head(t, path, title, description, altSuffix = "") {
 <html lang="${t.lang}">
 <head>
 <meta charset="utf-8">
+${GTM_HEAD}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
@@ -521,6 +535,7 @@ function home(t) {
   return `${head(t, `/${t.lang}/`, t.title, t.description)}<script type="application/ld+json">${JSON.stringify(json)}</script>
 </head>
 <body>
+${GTM_BODY}
 ${header(t, `/${t.lang}/`)}
 <main id="main">
 
@@ -772,6 +787,7 @@ function about(t) {
   const storyHtml = a.story.map((p, i) => `<p${a.storyHighlight.includes(i) ? ' class="kb-em"' : ""}>${p}</p>`).join("");
   return `${head(t, `/${t.lang}/about/`, a.title, a.description, "about/")}</head>
 <body>
+${GTM_BODY}
 ${header(t, `/${t.lang}/`, { alt: "about/", active: "about" })}
 <main id="main" class="koby-page">
 
@@ -833,9 +849,10 @@ ${footer(t)}
 
 function privacy(t) {
   const p = t.privacy;
-  return `${head(t, t.privacyPath, p.title, p.description)}</head>
+  return `${head(t, t.privacyPath, p.title, p.description, "privacy/")}</head>
 <body>
-${header(t, `/${t.lang}/`)}
+${GTM_BODY}
+${header(t, `/${t.lang}/`, { alt: "privacy/" })}
 <main id="main">
   <div class="wrap doc">
     <p><a href="/${t.lang}/">${p.back}</a></p>
@@ -857,4 +874,43 @@ for (const l of ["en", "tr"]) {
   mkdirSync(`${l}/about`, { recursive: true });
   writeFileSync(`${l}/about/index.html`, about(T[l]));
 }
-console.log("built en/ and tr/ (home, about, privacy)");
+
+// ---- custom 404 page (Vercel serves /404.html with a real 404 status)
+function notFound() {
+  const t = T.en;
+  const head404 = head(t, "/404/", "Page not found — TrueGuard Labs", "The page you are looking for does not exist.")
+    .split("\n").filter((l) => !/rel="canonical"|hreflang=|property="og:url"/.test(l)).join("\n");
+  return `${head404}</head>
+<body>
+${GTM_BODY}
+${header(t, "/en/")}
+<main id="main" class="nf-main">
+  <section>
+    <div class="wrap nf">
+      <span class="eyebrow">404</span>
+      <h1>Page not found</h1>
+      <p>The page you are looking for does not exist or has moved. / Aradığınız sayfa bulunamadı veya taşınmış olabilir.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="/en/">Back to TrueGuard Labs →</a><a class="btn-link" href="/tr/">Türkçe ana sayfa →</a></div>
+    </div>
+  </section>
+</main>
+${footer(t)}
+</body>
+</html>
+`;
+}
+writeFileSync("404.html", notFound());
+
+// ---- sitemap.xml: the four public pages that are listed on purpose, with EN/TR alternates
+const sitemapPages = [["en/", "tr/"], ["en/privacy/", "tr/privacy/"]];
+const urlEntry = (loc, pair) => `  <url>
+    <loc>${SITE}/${loc}</loc>
+${pair.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.slice(0, 2)}" href="${SITE}/${a}"/>`).join("\n")}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}/${pair[0]}"/>
+  </url>`;
+writeFileSync("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${sitemapPages.flatMap((pair) => pair.map((loc) => urlEntry(loc, pair))).join("\n")}
+</urlset>
+`);
+console.log("built en/ and tr/ (home, about, privacy), 404.html, sitemap.xml");
