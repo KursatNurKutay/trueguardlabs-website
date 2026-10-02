@@ -19,6 +19,10 @@
 - Contact form posts to `api/contact.js` (Vercel function, Nodemailer over Migadu SMTP). Vercel environment variables needed: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO`. Use a dedicated form mailbox, not the info@ password.
 - No tracking. Any Google tag goes in via Tag Manager and only with the owner's approval.
 
+## Koby Soft page
+
+- `/en/about/` and `/tr/about/` (menu: About / Hakkımızda; footer Koby logo links to it). Wording lives in `tools/build.mjs` (`A` object). Story text is the owner's Turkish text; the English is a translation to be reviewed. Product cards use text names (no RentFlow/DentFlow logo files yet) and link to rentflowrentals.com and dentflowclinic.com.
+
 ## Still open before go-live
 
 1. ~~Koby logo~~ done: `assets/img/koby-logo.png` (white-K version for the dark footer; original in `koby-logo-original.webp`). It is not linked anywhere; add a link to kobysoft.app only if wanted.

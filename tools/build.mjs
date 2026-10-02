@@ -425,9 +425,9 @@ const I = {
 const icon = (k, s = 24) => `<svg viewBox="0 0 24 24" width="${s}" height="${s}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
 const catIcons = ["target", "chat", "calendar", "user", "globe", "lock", "doc", "warn", "funnel", "bolt"];
 
-function head(t, path, title, description) {
+function head(t, path, title, description, altSuffix = "") {
   const url = `${SITE}${path}`;
-  const alt = (l) => `${SITE}/${l}/`;
+  const alt = (l) => `${SITE}/${l}/${altSuffix}`;
   return `<!doctype html>
 <html lang="${t.lang}">
 <head>
@@ -463,15 +463,15 @@ function head(t, path, title, description) {
 `;
 }
 
-function header(t, homePath) {
+function header(t, homePath, opts = {}) {
   const x = X[t.lang];
   return `<a class="skip" href="#main">${t.skip}</a>
 <header class="site-header">
   <div class="wrap bar">
     <a class="brand" href="${homePath}"><img src="/assets/img/logo.png" alt="" width="44" height="44"><span>TrueGuard <small>Labs</small></span></a>
-    <nav class="nav" id="site-nav" aria-label="Main">${t.nav.map(([h, l], i) => `<a href="${homePath}${h}"${i === 3 ? ' class="nav-contact"' : ""}>${l}</a>`).join("")}</nav>
+    <nav class="nav" id="site-nav" aria-label="Main">${t.nav.slice(0, 3).map(([h, l]) => `<a href="${homePath}${h}">${l}</a>`).join("")}<a href="${homePath}about/"${opts.active === "about" ? ' class="active"' : ""}>${A[t.lang].navLabel}</a>${t.nav.slice(3).map(([h, l]) => `<a href="${homePath}${h}" class="nav-contact">${l}</a>`).join("")}</nav>
     <div class="bar-right">
-      <div class="lang" aria-label="Language"><span aria-current="true">${t.lang.toUpperCase()}</span><a href="/${t.other.code}/" hreflang="${t.other.code}" lang="${t.other.code}">${t.other.label}</a></div>
+      <div class="lang" aria-label="Language"><span aria-current="true">${t.lang.toUpperCase()}</span><a href="/${t.other.code}/${opts.alt || ""}" hreflang="${t.other.code}" lang="${t.other.code}">${t.other.label}</a></div>
       <a class="btn btn-primary btn-sm" href="${homePath}#contact">${x.navCta}</a>
       <button class="burger" type="button" aria-label="${x.menu}" aria-expanded="false" aria-controls="site-nav"><span></span></button>
     </div>
@@ -486,7 +486,7 @@ function footer(t) {
     <div class="foot-top">
       <a class="foot-brand" href="/${t.lang}/"><img src="/assets/img/logo.png" alt="" width="56" height="56"><span>TrueGuard Labs</span></a>
       <div class="foot-koby">
-        <div class="koby-mark"><img src="/assets/img/koby-logo.png" alt="" width="44" height="44"><span class="koby-word">KOBY<small>SOFT</small></span></div>
+        <a class="koby-mark" href="/${t.lang}/about/" aria-label="KOBY SOFT"><img src="/assets/img/koby-logo.png" alt="" width="44" height="44"><span class="koby-word">KOBY<small>SOFT</small></span></a>
         <p>${f.koby[0]}<span>${f.koby[1]}</span></p>
       </div>
     </div>
@@ -662,6 +662,167 @@ ${footer(t)}
 `;
 }
 
+// ---- About KOBY SOFT page -------------------------------------------------
+const A = {
+  en: {
+    navLabel: "About",
+    title: "About KOBY SOFT — TrueGuard Labs",
+    description: "TrueGuard Labs is a service of KOBY SOFT, a software and digital solutions company in Northern Cyprus that turns technology into solutions that work for businesses.",
+    eyebrow: "ABOUT US",
+    sub: ["Smart solutions", " for growing businesses."],
+    paras: [
+      "KOBY SOFT is a software and digital solutions company operating in the Turkish Republic of Northern Cyprus.",
+      "We build products that make businesses’ communication easier, make their processes smarter, and help them offer their customers a better experience.",
+      "Our core goal is to help businesses grow through technology and support digital transformation across our region.",
+    ],
+    values: [
+      ["Focused on Businesses", "We focus on the real needs of small, medium and growing businesses."],
+      ["Smart, Usable Solutions", "We build solutions that are easy to use and actually work, not complicated ones."],
+      ["Trust & Quality", "We prioritise data security and deliver quality software and support."],
+      ["Contributing to Growth", "We help businesses grow and become more efficient through technology."],
+    ],
+    storyEyebrow: "OUR STORY",
+    storyH: "A journey that began with the Commodore 64",
+    story: [
+      "KOBY SOFT’s journey began in 1984 with the Commodore 64, one of the first personal computers to enter our homes.",
+      "In the 42 years since, we have watched computers move from our homes to the centre of business life. We lived through the internet revolution, watched the world go mobile, dove headfirst into e-commerce, saw borders disappear with cloud technologies, and now we are learning to live, work and create with Artificial Intelligence.",
+      "KOBY SOFT is the result of that whole technology journey.",
+      "Technology changed, tools changed, the way we work changed. But one thing did not: the curiosity to not merely follow new technology, but to turn it into something that works in real life.",
+      "That is exactly what we do today with KOBY SOFT.",
+      "We turn complex technologies into simple, usable solutions that deliver real benefit to businesses. We see artificial intelligence not as a show piece, but as a tool that works in a business’s daily life.",
+      "For us the point is not “artificial intelligence”, but what it can do for businesses.",
+      "The point is making technology a natural part of the business.",
+    ],
+    storyHighlight: [3, 7], // paragraphs shown as emphasised lines
+    founder: ["Kürşat Kutay", "Founder"],
+    productsH: "Our Products",
+    products: [
+      { name: "TrueGuard Labs", tag: "Independent AI verification for businesses that use AI.", desc: "We independently test the AI assistants that businesses already use, document the findings and score them with the TrueGuard Health Score™.", linkText: "You are here", href: null },
+      { name: "RentFlow", tag: "A smart digital assistant for car rental companies.", desc: "Our assistant runs on your website 24/7, talks with your customers instantly, answers their questions, and increases booking opportunities.", linkText: "rentflowrentals.com", href: "https://www.rentflowrentals.com" },
+      { name: "DentFlow", tag: "A smart digital assistant for dental clinics.", desc: "Our assistant runs on your clinic’s website 24/7, talks with patients instantly, answers their questions, and helps fill your appointment calendar.", linkText: "dentflowclinic.com", href: "https://www.dentflowclinic.com" },
+    ],
+    bannerH: "About KOBY SOFT",
+    bannerP: [
+      "KOBY SOFT is a software and digital solutions company operating in the Turkish Republic of Northern Cyprus.",
+      "We focus on real-world problems, building products that strengthen businesses’ communication, make their processes smarter, and support their growth. We stand by businesses with an innovative, reliable, results-driven approach.",
+    ],
+    checklist: ["Based in Northern Cyprus", "Solutions tailored to businesses", "Reliable technology infrastructure", "Ongoing development & support"],
+    back: "← Back to TrueGuard Labs",
+  },
+  tr: {
+    navLabel: "Hakkımızda",
+    title: "KOBY SOFT Hakkında — TrueGuard Labs",
+    description: "TrueGuard Labs, Kuzey Kıbrıs’ta faaliyet gösteren ve teknolojiyi işletmeler için işe yarayan çözümlere dönüştüren yazılım ve dijital çözümler şirketi KOBY SOFT’un bir hizmetidir.",
+    eyebrow: "HAKKIMIZDA",
+    sub: ["Akıllı çözümler", " büyüyen işletmeler için."],
+    paras: [
+      "KOBY SOFT, Kuzey Kıbrıs Türk Cumhuriyeti’nde faaliyet gösteren bir yazılım ve dijital çözümler şirketidir.",
+      "İşletmelerin iletişimini kolaylaştıran, süreçlerini akıllılaştıran ve müşterilerine daha iyi bir deneyim sunmalarına yardımcı olan ürünler geliştiriyoruz.",
+      "Temel hedefimiz, işletmelerin teknolojiyle büyümesine yardımcı olmak ve bölgemizdeki dijital dönüşüme destek olmaktır.",
+    ],
+    values: [
+      ["İşletmelere Odaklı", "Küçük, orta ve büyüyen işletmelerin gerçek ihtiyaçlarına odaklanıyoruz."],
+      ["Akıllı, Kullanılabilir Çözümler", "Karmaşık değil, kullanımı kolay ve gerçekten işe yarayan çözümler geliştiriyoruz."],
+      ["Güven ve Kalite", "Veri güvenliğine öncelik veriyor, kaliteli yazılım ve destek sunuyoruz."],
+      ["Büyümeye Katkı", "İşletmelerin teknolojiyle büyümesine ve daha verimli olmasına yardımcı oluyoruz."],
+    ],
+    storyEyebrow: "HİKÂYEMİZ",
+    storyH: "Commodore 64 ile başlayan bir yolculuk",
+    story: [
+      "KOBY SOFT’un yolculuğu, 1984 yılında evlerimize giren ilk kişisel bilgisayarlardan biri olan Commodore 64 ile başladı.",
+      "O günden bugüne geçen 42 yıl içerisinde bilgisayarların evlerden iş hayatının merkezine yerleşmesine tanıklık ettik; internet devrimini yaşadık, dünyanın mobil hale gelişini izledik, e-ticareti yedik yuttuk, bulut teknolojileriyle sınırların ortadan kalktığını gördük ve şimdi de Yapay Zekâ ile yaşamayı, çalışmayı ve üretmeyi öğreniyoruz.",
+      "KOBY SOFT işte tüm bu teknoloji yolculuğunun bir sonucu.",
+      "Teknoloji değişti, araçlar değişti, iş yapma biçimlerimiz değişti. Ama değişmeyen bir şey vardı: Yeni teknolojiyi sadece takip etmek değil, onu gerçek hayatta işe yarayan bir şeye dönüştürme merakı.",
+      "Bugün KOBY SOFT ile yaptığımız da tam olarak bu.",
+      "Karmaşık teknolojileri işletmeler için basit, kullanılabilir ve gerçekten fayda sağlayan çözümlere dönüştürüyoruz. Yapay zekâyı bir gösteri malzemesi olarak değil, işletmenin günlük hayatında çalışan bir araç olarak görüyoruz.",
+      "Bizim için mesele “yapay zekâ” değil, onun işletmeler için ne yapabildiği.",
+      "Mesele, teknolojiyi işletmenin doğal bir parçası haline getirmek.",
+    ],
+    storyHighlight: [3, 7],
+    founder: ["Kürşat Kutay", "Kurucu"],
+    productsH: "Ürünlerimiz",
+    products: [
+      { name: "TrueGuard Labs", tag: "Yapay zekâ kullanan işletmeler için bağımsız yapay zekâ doğrulama.", desc: "İşletmelerin halihazırda kullandığı yapay zekâ asistanlarını bağımsız olarak test eder, bulguları belgeler ve TrueGuard Sağlık Skoru™ ile puanlarız.", linkText: "Şu an buradasınız", href: null },
+      { name: "RentFlow", tag: "Araç kiralama şirketleri için akıllı dijital asistan.", desc: "Asistanımız web sitenizde 7/24 çalışır, müşterilerinizle anında konuşur, sorularını yanıtlar ve rezervasyon fırsatlarını artırır.", linkText: "rentflowrentals.com", href: "https://www.rentflowrentals.com" },
+      { name: "DentFlow", tag: "Diş klinikleri için akıllı dijital asistan.", desc: "Asistanımız kliniğinizin web sitesinde 7/24 çalışır, hastalarla anında konuşur, sorularını yanıtlar ve randevu takviminizi doldurmaya yardımcı olur.", linkText: "dentflowclinic.com", href: "https://www.dentflowclinic.com" },
+    ],
+    bannerH: "KOBY SOFT Hakkında",
+    bannerP: [
+      "KOBY SOFT, Kuzey Kıbrıs Türk Cumhuriyeti’nde faaliyet gösteren bir yazılım ve dijital çözümler şirketidir.",
+      "Gerçek dünya sorunlarına odaklanıyor; işletmelerin iletişimini güçlendiren, süreçlerini akıllılaştıran ve büyümelerini destekleyen ürünler geliştiriyoruz. İşletmelerin yanında yenilikçi, güvenilir ve sonuç odaklı bir yaklaşımla duruyoruz.",
+    ],
+    checklist: ["Kuzey Kıbrıs merkezli", "İşletmelere özel çözümler", "Güvenilir teknoloji altyapısı", "Sürekli geliştirme ve destek"],
+    back: "← TrueGuard Labs’a dön",
+  },
+};
+
+const TRNC_FLAG = '<svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TRNC"><rect width="60" height="40" fill="#e30a17"/><rect x="6" y="6" width="48" height="28" fill="#fff"/><circle cx="24" cy="20" r="7" fill="#e30a17"/><circle cx="26.5" cy="20" r="5.6" fill="#fff"/><path d="M31 15.5 L32.3 19 L36 19.3 L33.2 21.6 L34.1 25.2 L31 23.2 L27.9 25.2 L28.8 21.6 L26 19.3 L29.7 19 Z" fill="#e30a17"/></svg>';
+
+function about(t) {
+  const a = A[t.lang];
+  const valueIcons = ["user", "bolt", "shield", "chart"];
+  const storyHtml = a.story.map((p, i) => `<p${a.storyHighlight.includes(i) ? ' class="kb-em"' : ""}>${p}</p>`).join("");
+  return `${head(t, `/${t.lang}/about/`, a.title, a.description, "about/")}</head>
+<body>
+${header(t, `/${t.lang}/`, { alt: "about/", active: "about" })}
+<main id="main" class="koby-page">
+
+<section class="kb-hero">
+  <div class="wrap kb-hero-grid">
+    <div>
+      <p class="kb-back"><a href="/${t.lang}/">${a.back}</a></p>
+      <span class="eyebrow">${a.eyebrow}</span>
+      <h1>KOBY SOFT</h1>
+      <h2 class="kb-sub"><span class="hl">${a.sub[0]}</span>${a.sub[1]}</h2>
+      <div class="kb-rule"></div>
+      ${a.paras.map((p) => `<p>${p}</p>`).join("")}
+    </div>
+    <div class="kb-mark">
+      <img src="/assets/img/koby-logo-light.png" alt="KOBY SOFT" width="150" height="150">
+      <div class="kb-tagline"><span class="hl">${a.sub[0]}</span>${a.sub[1]}</div>
+    </div>
+  </div>
+</section>
+
+<section class="kb-tight">
+  <div class="wrap">
+    <div class="kb-values">${a.values.map(([h, d], i) => `<div class="kb-value reveal"><div class="ico">${icon(valueIcons[i], 22)}</div><h3>${h}</h3><p>${d}</p></div>`).join("")}</div>
+  </div>
+</section>
+
+<section class="kb-tight">
+  <div class="wrap kb-story reveal">
+    <span class="eyebrow">${a.storyEyebrow}</span>
+    <h2>${a.storyH}</h2>
+    ${storyHtml}
+    <p class="kb-sign"><strong>${a.founder[0]}</strong><span>${a.founder[1]}</span></p>
+  </div>
+</section>
+
+<section class="kb-tight">
+  <div class="wrap">
+    <div class="kb-products-head"><h2>${a.productsH}</h2></div>
+    <div class="kb-products">${a.products.map((p) => `<div class="kb-product reveal${p.href ? "" : " current"}"><div class="kb-pname">${p.name}</div><p class="kb-ptag">${p.tag}</p><p>${p.desc}</p>${p.href ? `<a class="kb-plink" href="${p.href}" target="_blank" rel="noopener">${p.linkText} →</a>` : `<span class="kb-plink here">${p.linkText}</span>`}</div>`).join("")}</div>
+  </div>
+</section>
+
+<section class="kb-tight" style="padding-bottom:88px">
+  <div class="wrap">
+    <div class="kb-banner reveal">
+      <div class="kb-flag">${TRNC_FLAG}</div>
+      <div><h3>${a.bannerH}</h3>${a.bannerP.map((p) => `<p>${p}</p>`).join("")}</div>
+      <ul class="kb-check">${a.checklist.map((c) => `<li><span class="tick">✔</span><span>${c}</span></li>`).join("")}</ul>
+    </div>
+  </div>
+</section>
+
+</main>
+${footer(t)}
+</body>
+</html>
+`;
+}
+
 function privacy(t) {
   const p = t.privacy;
   return `${head(t, t.privacyPath, p.title, p.description)}</head>
@@ -685,5 +846,7 @@ for (const l of ["en", "tr"]) {
   mkdirSync(`${l}/privacy`, { recursive: true });
   writeFileSync(`${l}/index.html`, home(T[l]));
   writeFileSync(`${l}/privacy/index.html`, privacy(T[l]));
+  mkdirSync(`${l}/about`, { recursive: true });
+  writeFileSync(`${l}/about/index.html`, about(T[l]));
 }
-console.log("built en/ and tr/");
+console.log("built en/ and tr/ (home, about, privacy)");
