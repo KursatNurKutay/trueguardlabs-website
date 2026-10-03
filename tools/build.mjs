@@ -1,8 +1,14 @@
 // Generates the plain-HTML pages (en/, tr/) from one content file.
 // Run: node tools/build.mjs   (only needed when wording changes; Vercel just serves the output)
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync } from "node:fs";
 
 const SITE = "https://trueguardlabs.com";
+
+// Cookie consent: Google Consent Mode default (denied) must run BEFORE the GTM snippet.
+// The banner itself is assets/js/cookie-consent.js (same file as on the other Koby Soft sites).
+const CONSENT_DEFAULT = `<!-- Cookie consent: Google Consent Mode default (must run before GTM) -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});try{if(localStorage.getItem('cookie_consent_v1')==='accepted')gtag('consent','update',{analytics_storage:'granted'})}catch(e){}</script>`;
+const CONSENT_SCRIPT = `<script src="/assets/js/cookie-consent.js" defer data-privacy-tr="/tr/privacy/" data-privacy-en="/en/privacy/"></script>`;
 
 // Google Tag Manager: Google's standard snippet, container GTM-T89BSZ75.
 const GTM_HEAD = `<!-- Google Tag Manager -->
@@ -149,56 +155,12 @@ const T = {
     },
     privacyPath: "/en/privacy/",
     privacy: {
-      title: "Privacy Policy — TrueGuard Labs",
-      description: "How TrueGuard Labs collects and uses personal data (GDPR and KVKK).",
-      h1: "Privacy Policy",
-      draft: "DRAFT: this text is a working draft for review and has not been approved. It must be checked and finalised before the site goes live.",
+      title: 'Privacy and Cookie Policy — TrueGuard Labs',
+      description: 'How TrueGuard Labs collects and uses personal data, and how cookies are used on this website.',
+      h1: 'Privacy and Cookie Policy',
+      draft: "",
       back: "← Back to home",
-      body: `
-<p><em>Last updated: September 30, 2026</em></p>
-<h2>1. Who is responsible for your data</h2>
-<p>TrueGuard Labs (a brand operating under KOBY SOFT, Girne, Northern Cyprus) is the controller of the personal data described in this policy. Contact: <a href="mailto:${EMAIL}">${EMAIL}</a>. [To be confirmed: full legal entity name and whether an EU representative under GDPR Article 27 is needed.]</p>
-<h2>2. What this policy covers</h2>
-<p>This policy covers personal data collected through this website (trueguardlabs.com) and through your contact with us by form, email, phone or WhatsApp. Information exchanged while we carry out an independent AI verification for a client is governed by the agreement with that client. [To be confirmed: wording for client engagement data.]</p>
-<h2>3. What data we collect</h2>
-<ul>
-<li><strong>Contact form and messages:</strong> first and last name, company name, email address, website address, the link to your AI assistant (optional), your message, and a phone number if you give one.</li>
-<li><strong>Technical data:</strong> like any website, our hosting provider automatically records technical data such as your IP address, browser type and the time of your visit in server logs, for security and reliable operation.</li>
-</ul>
-<p>We do not ask for special categories of data (such as health data). Please do not include them in your message.</p>
-<h2>4. Why we use it, and on what legal basis (GDPR Article 6)</h2>
-<ul>
-<li><strong>To answer your enquiry and discuss our services.</strong> Basis: taking steps at your request before a contract (Art. 6(1)(b)), and our legitimate interest in replying to business enquiries (Art. 6(1)(f)). You also tick a consent box when you send the form.</li>
-<li><strong>To keep a record of our communication.</strong> Basis: our legitimate interest in documenting business correspondence (Art. 6(1)(f)).</li>
-<li><strong>To keep the website secure and working.</strong> Basis: our legitimate interest (Art. 6(1)(f)).</li>
-</ul>
-<p>Where we rely on consent, you can withdraw it at any time; this does not affect processing that already took place.</p>
-<h2>5. Who receives your data</h2>
-<p>We do not sell your data or use it for advertising. We share it only with service providers that process it on our behalf and under our instructions, to the extent needed to run this website and our email:</p>
-<ul>
-<li>Website hosting: Vercel Inc.</li>
-<li>Domain name system and network protection: Cloudflare, Inc.</li>
-<li>Email: Migadu (email hosting).</li>
-<li>If you contact us on WhatsApp, Meta’s WhatsApp service processes that conversation under its own terms and privacy policy.</li>
-</ul>
-<p>We may also disclose data where the law requires it. [To be confirmed: final list of providers.]</p>
-<h2>6. Transfers outside the EU/EEA</h2>
-<p>Some providers, such as Vercel and Cloudflare, may process data in countries outside the EU/EEA, including the United States. Where this happens we rely on the safeguards allowed by GDPR Chapter V, such as an adequacy decision or Standard Contractual Clauses. [To be confirmed with each provider’s current data processing terms.] Our own operations are based in Northern Cyprus.</p>
-<h2>7. How long we keep it</h2>
-<p>Enquiries that do not lead to a contract are kept for [24 months — proposed, to be confirmed] after our last contact and are then deleted or anonymised. If you become a client, we keep the data for the duration of the contract and afterwards for as long as the law requires. Server logs are kept by our hosting provider for a short period.</p>
-<h2>8. Your rights under the GDPR</h2>
-<p>You have the right to: access your data; have it corrected; have it erased; restrict its use; receive it in a portable format; object to processing based on our legitimate interests; and withdraw consent at any time. To exercise a right, write to <a href="mailto:${EMAIL}">${EMAIL}</a>. We will respond within one month.</p>
-<p>You also have the right to lodge a complaint with a data protection supervisory authority, in particular in the EU country where you live or work.</p>
-<h2>9. Visitors in Türkiye</h2>
-<p>If you are in Türkiye, this policy also serves as our notice under Turkey’s Law No. 6698 on the Protection of Personal Data (“KVKK”). Your rights under Article 11 of KVKK are substantially the same as those listed above, and you can exercise them through the same email address.</p>
-<h2>10. Cookies</h2>
-<p>This website does not currently use cookies, analytics or advertising trackers. If that changes, this policy will be updated first and, where required, we will ask for your consent.</p>
-<h2>11. Automated decisions</h2>
-<p>We do not make decisions about you based solely on automated processing.</p>
-<h2>12. Security</h2>
-<p>We use appropriate technical and organisational measures to protect your data, including encrypted connections (HTTPS) and access limited to the people who need it.</p>
-<h2>13. Changes</h2>
-<p>We may update this policy from time to time. The current version is always published on this page.</p>`,
+      body: readFileSync(new URL("./privacy-en.html", import.meta.url), "utf8"),
     },
   },
 
@@ -326,56 +288,12 @@ const T = {
     },
     privacyPath: "/tr/privacy/",
     privacy: {
-      title: "Gizlilik Politikası — TrueGuard Labs",
-      description: "TrueGuard Labs’ın bu web sitesi üzerinden gönderilen kişisel verileri nasıl topladığı ve kullandığı.",
-      h1: "Gizlilik Politikası",
-      draft: "TASLAK: bu metin inceleme için hazırlanmış çalışma taslağıdır ve onaylanmamıştır. Site yayına girmeden önce kontrol edilip kesinleştirilmelidir.",
+      title: 'KVKK Aydınlatma Metni ve Çerez Politikası — TrueGuard Labs',
+      description: 'TrueGuard Labs’ın kişisel verileri nasıl topladığı ve kullandığı ve bu web sitesinde çerezlerin nasıl kullanıldığı.',
+      h1: 'KVKK Aydınlatma Metni ve Çerez Politikası',
+      draft: "",
       back: "← Ana sayfaya dön",
-      body: `
-<p><em>Son güncelleme: 30 Eylül 2026</em></p>
-<h2>1. Verilerinizden kim sorumlu</h2>
-<p>TrueGuard Labs (KOBY SOFT çatısı altında faaliyet gösteren bir marka, Girne, Kuzey Kıbrıs), bu politikada açıklanan kişisel verilerin veri sorumlusudur. İletişim: <a href="mailto:${EMAIL}">${EMAIL}</a>. [Teyit edilecek: tam ticari unvan ve GDPR madde 27 kapsamında AB temsilcisi gerekip gerekmediği.]</p>
-<h2>2. Bu politikanın kapsamı</h2>
-<p>Bu politika, bu web sitesi (trueguardlabs.com) aracılığıyla ve bizimle form, e-posta, telefon veya WhatsApp üzerinden iletişime geçmeniz yoluyla toplanan kişisel verileri kapsar. Bir müşterimiz için bağımsız yapay zekâ doğrulaması yürütürken paylaşılan bilgiler, ilgili müşteriyle yapılan sözleşmeye tabidir. [Teyit edilecek: müşteri çalışması verilerine ilişkin ifade.]</p>
-<h2>3. Hangi verileri topluyoruz</h2>
-<ul>
-<li><strong>İletişim formu ve mesajlar:</strong> ad ve soyad, şirket adı, e-posta adresi, web sitesi adresi, yapay zekâ asistanınızın bağlantısı (isteğe bağlı), mesajınız ve verirseniz telefon numarası.</li>
-<li><strong>Teknik veriler:</strong> her web sitesinde olduğu gibi barındırma sağlayıcımız, güvenlik ve güvenilir işleyiş amacıyla IP adresiniz, tarayıcı türünüz ve ziyaret zamanınız gibi teknik verileri sunucu kayıtlarında otomatik olarak tutar.</li>
-</ul>
-<p>Sağlık verileri gibi özel nitelikli verileri istemiyoruz. Lütfen mesajınıza bunları eklemeyin.</p>
-<h2>4. Neden kullanıyoruz ve hukuki sebep (GDPR madde 6)</h2>
-<ul>
-<li><strong>Talebinizi yanıtlamak ve hizmetlerimizi görüşmek için.</strong> Sebep: sözleşme öncesinde talebiniz üzerine adım atılması (m. 6/1-b) ve iş taleplerini yanıtlamadaki meşru menfaatimiz (m. 6/1-f). Formu gönderirken ayrıca bir onay kutusunu işaretlersiniz.</li>
-<li><strong>İletişimimizin kaydını tutmak için.</strong> Sebep: iş yazışmalarını belgeleme konusundaki meşru menfaatimiz (m. 6/1-f).</li>
-<li><strong>Web sitesini güvenli ve çalışır tutmak için.</strong> Sebep: meşru menfaatimiz (m. 6/1-f).</li>
-</ul>
-<p>Açık rızaya dayandığımız durumlarda rızanızı istediğiniz zaman geri çekebilirsiniz; bu, daha önce yapılan işlemeyi etkilemez.</p>
-<h2>5. Verilerinizi kimler alır</h2>
-<p>Verilerinizi satmıyoruz ve reklam amacıyla kullanmıyoruz. Verileri yalnızca bu web sitesini ve e-postamızı işletmek için gerekli ölçüde, adımıza ve talimatlarımız doğrultusunda işleyen hizmet sağlayıcılarla paylaşırız:</p>
-<ul>
-<li>Web sitesi barındırma: Vercel Inc.</li>
-<li>Alan adı sistemi ve ağ koruması: Cloudflare, Inc.</li>
-<li>E-posta: Migadu (e-posta barındırma).</li>
-<li>Bize WhatsApp’tan yazarsanız, bu konuşma Meta’nın WhatsApp hizmeti tarafından kendi koşulları ve gizlilik politikası çerçevesinde işlenir.</li>
-</ul>
-<p>Kanunen gerekli olduğunda verileri ifşa edebiliriz. [Teyit edilecek: sağlayıcıların nihai listesi.]</p>
-<h2>6. AB/AEA dışına aktarım</h2>
-<p>Vercel ve Cloudflare gibi bazı sağlayıcılar, Amerika Birleşik Devletleri dahil AB/AEA dışındaki ülkelerde veri işleyebilir. Bu durumda GDPR Bölüm V’in izin verdiği güvencelere, örneğin yeterlilik kararına veya Standart Sözleşme Hükümlerine dayanırız. [Her sağlayıcının güncel veri işleme koşullarıyla teyit edilecek.] Kendi faaliyetlerimiz Kuzey Kıbrıs’tadır.</p>
-<h2>7. Ne kadar süre saklıyoruz</h2>
-<p>Sözleşmeye dönüşmeyen talepler, son iletişimimizden sonra [24 ay — öneri, teyit edilecek] süreyle saklanır ve ardından silinir veya anonim hale getirilir. Müşterimiz olursanız veriler sözleşme süresince ve sonrasında kanunun gerektirdiği süre boyunca saklanır. Sunucu kayıtları barındırma sağlayıcımız tarafından kısa bir süre saklanır.</p>
-<h2>8. GDPR kapsamındaki haklarınız</h2>
-<p>Şu haklara sahipsiniz: verilerinize erişim; düzeltilmesi; silinmesi; kullanımının kısıtlanması; taşınabilir biçimde alınması; meşru menfaatimize dayanan işlemeye itiraz; ve rızanın istediğiniz zaman geri çekilmesi. Bir hakkınızı kullanmak için <a href="mailto:${EMAIL}">${EMAIL}</a> adresine yazın. Bir ay içinde yanıt veririz.</p>
-<p>Ayrıca bir veri koruma denetim otoritesine, özellikle yaşadığınız veya çalıştığınız AB ülkesindeki otoriteye şikâyette bulunma hakkınız vardır.</p>
-<h2>9. Türkiye’deki ziyaretçiler</h2>
-<p>Türkiye’deyseniz bu politika aynı zamanda 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamındaki aydınlatma metnimiz işlevi görür. KVKK madde 11 kapsamındaki haklarınız yukarıda sayılanlarla büyük ölçüde aynıdır ve aynı e-posta adresi üzerinden kullanabilirsiniz.</p>
-<h2>10. Çerezler</h2>
-<p>Bu web sitesi şu anda çerez, analiz veya reklam takipçisi kullanmamaktadır. Bu değişirse önce bu politika güncellenecek ve gerekli olduğunda onayınız istenecektir.</p>
-<h2>11. Otomatik kararlar</h2>
-<p>Hakkınızda yalnızca otomatik işlemeye dayanan kararlar vermiyoruz.</p>
-<h2>12. Güvenlik</h2>
-<p>Verilerinizi korumak için şifreli bağlantılar (HTTPS) ve erişimin yalnızca gerekli kişilerle sınırlandırılması dahil uygun teknik ve idari tedbirler uyguluyoruz.</p>
-<h2>13. Değişiklikler</h2>
-<p>Bu politikayı zaman zaman güncelleyebiliriz. Güncel sürüm her zaman bu sayfada yayımlanır.</p>`,
+      body: readFileSync(new URL("./privacy-tr.html", import.meta.url), "utf8"),
     },
   },
 };
@@ -449,6 +367,7 @@ function head(t, path, title, description, altSuffix = "") {
 <html lang="${t.lang}">
 <head>
 <meta charset="utf-8">
+${CONSENT_DEFAULT}
 ${GTM_HEAD}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)}</title>
@@ -478,6 +397,7 @@ ${GTM_HEAD}
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <script>document.documentElement.className+=" js"</script>
+${CONSENT_SCRIPT}
 `;
 }
 
@@ -856,7 +776,7 @@ ${header(t, `/${t.lang}/`, { alt: "privacy/" })}
 <main id="main">
   <div class="wrap doc">
     <p><a href="/${t.lang}/">${p.back}</a></p>
-    <div class="draft-note"><strong>${p.draft}</strong></div>
+    ${p.draft ? `<div class="draft-note"><strong>${p.draft}</strong></div>` : ""}
     <h1>${p.h1}</h1>
     ${p.body}
   </div>
