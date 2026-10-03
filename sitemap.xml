@@ -13,6 +13,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://trueguardlabs.com/en/"/>
   </url>
   <url>
+    <loc>https://trueguardlabs.com/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trueguardlabs.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://trueguardlabs.com/tr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trueguardlabs.com/en/about/"/>
+  </url>
+  <url>
+    <loc>https://trueguardlabs.com/tr/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trueguardlabs.com/en/about/"/>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://trueguardlabs.com/tr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trueguardlabs.com/en/about/"/>
+  </url>
+  <url>
     <loc>https://trueguardlabs.com/en/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://trueguardlabs.com/en/privacy/"/>
     <xhtml:link rel="alternate" hreflang="tr" href="https://trueguardlabs.com/tr/privacy/"/>

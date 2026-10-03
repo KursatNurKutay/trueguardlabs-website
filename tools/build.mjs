@@ -448,7 +448,7 @@ function home(t) {
     email: EMAIL,
     telephone: PHONE_TEL,
     description: t.description,
-    parentOrganization: { "@type": "Organization", name: "Koby Soft" },
+    parentOrganization: { "@type": "Organization", name: "Koby Soft", url: "https://kobysoft.app" },
   };
   const slides = x.demo.map((d, i) => `<div class="slide${i === 0 ? " active" : ""}"><div class="bubble user">${d.user}</div><div class="bubble ai">${d.ai}</div><div class="flag"><b>${d.flag[0]}</b>${d.flag[1]}</div></div>`).join("");
   const dots = x.demo.map((_, i) => `<button type="button" aria-label="${i + 1}"${i === 0 ? ' class="active"' : ""}></button>`).join("");
@@ -821,8 +821,8 @@ ${footer(t)}
 }
 writeFileSync("404.html", notFound());
 
-// ---- sitemap.xml: the four public pages that are listed on purpose, with EN/TR alternates
-const sitemapPages = [["en/", "tr/"], ["en/privacy/", "tr/privacy/"]];
+// ---- sitemap.xml: the public pages (home, KOBY SOFT about, privacy), each with its EN/TR alternates
+const sitemapPages = [["en/", "tr/"], ["en/about/", "tr/about/"], ["en/privacy/", "tr/privacy/"]];
 const urlEntry = (loc, pair) => `  <url>
     <loc>${SITE}/${loc}</loc>
 ${pair.map((a) => `    <xhtml:link rel="alternate" hreflang="${a.slice(0, 2)}" href="${SITE}/${a}"/>`).join("\n")}

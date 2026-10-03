@@ -7,7 +7,7 @@
 - **Who it is for:** Any business anywhere that uses AI. No industry or region focus.
 - **Relationship to Koby Soft:** A Koby Soft product; the footer shows the Koby mark and tagline like DentFlow's.
 - **Visitor action:** Contact by form, email, phone or WhatsApp. Reply within 24 hours.
-- **State:** Parked, not promoted. Launches hidden from search engines (`X-Robots-Tag: noindex` in `vercel.json`); remove that header when the owner decides to be indexed, then add robots.txt and sitemap.
+- **State:** Live and indexable (noindex removed). `robots.txt` and `sitemap.xml` are in place; the sitemap lists six pages (home, KOBY SOFT about, privacy, each in EN and TR) and was submitted in Google Search Console on Oct 2, 2026.
 - **Languages:** English (default, `/en/`) and Turkish (`/tr/`).
 - **Brand:** Navy and orange from the circuit-check logo; layout inspired by dentflowclinic.com.
 - **Contact details on page:** info@trueguardlabs.com, +90 (543) 742 44 33, WhatsApp. No postal address.
@@ -17,7 +17,7 @@
 
 - Site is plain HTML in `en/` and `tr/`, generated from `tools/build.mjs` (`node tools/build.mjs`). Edit wording there, not in the HTML.
 - Contact form posts to `api/contact.js` (Vercel function, Nodemailer over Migadu SMTP). Vercel environment variables needed: `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `CONTACT_TO`. Use a dedicated form mailbox, not the info@ password.
-- No tracking. Any Google tag goes in via Tag Manager and only with the owner's approval.
+- Analytics: Google Tag Manager (GTM-T89BSZ75) behind a cookie-consent banner (`assets/js/cookie-consent.js`, Google Consent Mode, analytics only). Privacy pages use the shared KVKK / GDPR privacy and cookie text (`tools/privacy-en.html`, `tools/privacy-tr.html`). Contact form confirmed working by the owner on Oct 3, 2026.
 
 ## Koby Soft page
 
@@ -26,11 +26,11 @@
 ## Still open before go-live
 
 1. ~~Koby logo~~ done: `assets/img/koby-logo.png` (white-K version for the dark footer; original in `koby-logo-original.webp`). It is not linked anywhere; add a link to kobysoft.app only if wanted.
-2. Privacy Policy pages (GDPR-based, with a short KVKK section) are DRAFTS. Resolve every bracketed item, have a qualified person review, then remove the draft banner in `tools/build.mjs`.
+2. Privacy pages: shared text replaced the old drafts on Oct 3, 2026. Details are provisional (sole proprietorship KURSAT KUTAY, address Antalya, contact info@kobysoft.app). Update them once the company is formed, and have a qualified person review them.
 3. The five other "Verified findings" from the old site (only the lost-booking one is included).
 4. Turkish wording review by the owner.
-5. Migadu mailbox and DNS records, Vercel project and env vars, then DNS switch in Cloudflare. Registrar transfer to Cloudflare is deferred until after launch.
-6. ~~Decide indexing~~ done: noindex removed, robots.txt and sitemap.xml added, GTM-T89BSZ75 added via tools/build.mjs. Privacy section 10 (Cookies) still says no cookies/analytics and must be reworded by the owner.
+5. Done: Migadu mailbox and form, Vercel project, and the domain fully moved to Cloudflare (owner, Oct 3, 2026). Do not touch the email DNS records.
+6. ~~Decide indexing~~ done: noindex removed, robots.txt and sitemap.xml added, GTM-T89BSZ75 added via tools/build.mjs. The privacy text now describes cookies and analytics correctly.
 
 ---
 
